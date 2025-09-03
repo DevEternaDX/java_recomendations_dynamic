@@ -1,0 +1,63 @@
+[
+  {
+    "id": "R-ACT-ACWR-READINESS-01",
+    "version": 1,
+    "enabled": true,
+    "tenant_id": "default",
+    "category": "actividad",
+    "priority": 80,
+    "severity": 2,
+    "cooldown_days": 3,
+    "max_per_day": 0,
+    "tags": ["composed","preventive"],
+    "logic": {"all": [
+      {"var":"acwr","agg":"mean_7d","op":">","value":1.2},
+      {"var":"readiness_score","agg":"current","op":"<","value":50}
+    ]},
+    "messages": {
+      "locale": "es-ES",
+      "candidates": [
+        {"id":"MSG1","text":"ACWR {{acwr:mean_7d:.2f}} alto y Readiness {{readiness_score:current:.0f}} bajo → prioriza recuperación hoy.", "weight": 2},
+        {"id":"MSG2","text":"Carga reciente alta con recuperación limitada. Considera baja intensidad.", "weight": 1}
+      ]
+    }
+  },
+  {
+    "id": "R-ACT-STEPS-LOW",
+    "version": 1,
+    "enabled": true,
+    "tenant_id": "default",
+    "category": "actividad",
+    "priority": 50,
+    "severity": 1,
+    "cooldown_days": 1,
+    "max_per_day": 1,
+    "tags": ["simple"],
+    "logic": {"var":"steps","agg":"current","op":"<","value":5000},
+    "messages": {
+      "locale": "es-ES",
+      "candidates": [
+        {"id":"MSG1","text":"Solo {{steps:current:.0f}} pasos hoy. ¡Intenta caminar un poco más!", "weight": 1}
+      ]
+    }
+  },
+  {
+    "id": "R-HRV-RECOVERY-01",
+    "version": 1,
+    "enabled": true,
+    "tenant_id": "default",
+    "category": "recuperacion",
+    "priority": 75,
+    "severity": 2,
+    "cooldown_days": 2,
+    "max_per_day": 0,
+    "tags": ["recovery"],
+    "logic": {"var":"heart_rate_variability_sdnn","agg":"delta_pct_3v14","op":"<","value":-0.15},
+    "messages": {
+      "locale": "es-ES",
+      "candidates": [
+        {"id":"MSG1","text":"HRV ha bajado {{heart_rate_variability_sdnn:delta_pct_3v14:.1%}}. Considera día de recuperación.", "weight": 1}
+      ]
+    }
+  }
+]
