@@ -9,6 +9,7 @@ import com.eterna.dx.rulesengine.repository.RuleMessageRepository;
 import com.eterna.dx.rulesengine.repository.RuleRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
@@ -24,7 +25,6 @@ import org.springframework.web.server.ResponseStatusException;
 import java.io.StringReader;
 import java.util.*;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 /**
  * Controlador para gestión de reglas.
@@ -39,7 +39,8 @@ public class RuleController {
     private final RuleRepository ruleRepository;
     private final RuleMessageRepository ruleMessageRepository;
     private final ObjectMapper objectMapper = new ObjectMapper();
-    private final ObjectMapper yamlMapper = new ObjectMapper(new YAMLFactory());
+    private final ObjectMapper yamlMapper = new ObjectMapper(new YAMLFactory())
+            .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
 
     /**
      * Lista todas las reglas con filtros opcionales.
@@ -59,10 +60,32 @@ public class RuleController {
      * GET /rules/{rule_id}
      */
     @GetMapping("/{ruleId}")
-    public Rule getRule(@PathVariable String ruleId) {
-        return ruleRepository.findById(ruleId)
+    public Map<String, Object> getRule(@PathVariable String ruleId) {
+        Rule rule = ruleRepository.findById(ruleId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, 
                         "Regla no encontrada: " + ruleId));
+        
+        // Convertir a formato esperado por el frontend
+        Map<String, Object> ruleDto = new HashMap<>();
+        ruleDto.put("id", rule.getId());
+        ruleDto.put("version", rule.getVersion());
+        ruleDto.put("enabled", rule.getEnabled());
+        ruleDto.put("tenantId", rule.getTenantId());
+        ruleDto.put("category", rule.getCategory());
+        ruleDto.put("priority", rule.getPriority());
+        ruleDto.put("severity", rule.getSeverity());
+        ruleDto.put("cooldownDays", rule.getCooldownDays());
+        ruleDto.put("maxPerDay", rule.getMaxPerDay());
+        ruleDto.put("tags", rule.getTags());
+        ruleDto.put("logic", rule.getLogic());
+        ruleDto.put("locale", rule.getLocale());
+        ruleDto.put("createdAt", rule.getCreatedAt());
+        ruleDto.put("updatedAt", rule.getUpdatedAt());
+        
+        // Formatear mensajes para el frontend
+        ruleDto.put("messages", rule.getMessagesForFrontend());
+        
+        return ruleDto;
     }
 
     /**
@@ -395,12 +418,36 @@ public class RuleController {
     public Map<String, Object> importRules(@RequestBody String data,
                                           @RequestParam(defaultValue = "json") String format) {
         try {
-            List<Rule> rulesToImport;
-            
+            List<RuleRequest> rulesToImport;
+
             if ("yaml".equalsIgnoreCase(format)) {
-                rulesToImport = yamlMapper.readValue(data, new TypeReference<List<Rule>>() {});
+                try {
+                    // Intento directo a RuleRequest (YAML en snake_case como lista)
+                    rulesToImport = yamlMapper.readValue(data, new TypeReference<List<RuleRequest>>() {});
+                } catch (Exception parseEx) {
+                    try {
+                        // Fallback: YAML con estructura de mensajes anidada como lista
+                        List<Map<String, Object>> rawList = yamlMapper.readValue(data, new TypeReference<List<Map<String, Object>>>() {});
+                        rulesToImport = new ArrayList<>();
+                        for (Map<String, Object> raw : rawList) {
+                            rulesToImport.add(convertRawToRuleRequest(raw));
+                        }
+                    } catch (Exception parseEx2) {
+                        // Fallback final: YAML con reglas como claves del nivel raíz (formato rules_basic.yaml)
+                        Map<String, Object> rootMap = yamlMapper.readValue(data, new TypeReference<Map<String, Object>>() {});
+                        rulesToImport = new ArrayList<>();
+                        for (Map.Entry<String, Object> entry : rootMap.entrySet()) {
+                            String ruleId = entry.getKey();
+                            if (entry.getValue() instanceof Map<?, ?> ruleData) {
+                                Map<String, Object> ruleMap = new HashMap<>((Map<String, Object>) ruleData);
+                                ruleMap.put("id", ruleId); // Agregar el ID como campo
+                                rulesToImport.add(convertRawToRuleRequest(ruleMap));
+                            }
+                        }
+                    }
+                }
             } else {
-                rulesToImport = objectMapper.readValue(data, new TypeReference<List<Rule>>() {});
+                rulesToImport = objectMapper.readValue(data, new TypeReference<List<RuleRequest>>() {});
             }
 
             if (rulesToImport == null || rulesToImport.isEmpty()) {
@@ -411,18 +458,19 @@ public class RuleController {
             List<String> created = new ArrayList<>();
             List<String> updated = new ArrayList<>();
 
-            for (Rule ruleData : rulesToImport) {
-                boolean exists = ruleRepository.existsById(ruleData.getId());
+            for (RuleRequest ruleRequest : rulesToImport) {
+                boolean exists = ruleRepository.existsById(ruleRequest.getId());
                 
                 if (exists) {
                     // Actualizar regla existente
-                    Rule existingRule = ruleRepository.findById(ruleData.getId()).get();
-                    updateRuleFromData(existingRule, ruleData);
-                    updated.add(ruleData.getId());
+                    Rule existingRule = ruleRepository.findById(ruleRequest.getId()).get();
+                    updateRuleFromRequest(existingRule, ruleRequest);
+                    updated.add(ruleRequest.getId());
                 } else {
                     // Crear nueva regla
-                    ruleRepository.save(ruleData);
-                    created.add(ruleData.getId());
+                    Rule newRule = createRuleFromRequest(ruleRequest);
+                    ruleRepository.save(newRule);
+                    created.add(ruleRequest.getId());
                 }
             }
 
@@ -442,6 +490,193 @@ public class RuleController {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, 
                     "Error interno: " + e.getMessage());
         }
+    }
+
+    /**
+     * Convierte un mapa crudo (posible YAML) a RuleRequest, aceptando keys snake_case y
+     * mensajes anidados (messages: { locale, candidates: [...] }).
+     */
+    @SuppressWarnings("unchecked")
+    private RuleRequest convertRawToRuleRequest(Map<String, Object> raw) {
+        String id = stringVal(raw.get("id"));
+        if (id == null || id.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Cada regla debe tener 'id'");
+        }
+
+        String tenantId = stringVal(firstNonNull(raw.get("tenantId"), raw.get("tenant_id"), "default"));
+        String category = stringVal(raw.get("category"));
+        Integer priority = intVal(firstNonNull(raw.get("priority"), 50));
+        Integer severity = intVal(firstNonNull(raw.get("severity"), 1));
+        Integer cooldownDays = intVal(firstNonNull(raw.get("cooldownDays"), raw.get("cooldown_days"), 0));
+        Integer maxPerDay = intVal(firstNonNull(raw.get("maxPerDay"), raw.get("max_per_day"), 0));
+        Boolean enabled = boolVal(firstNonNull(raw.get("enabled"), true));
+        String locale = stringVal(firstNonNull(raw.get("locale"), "es-ES"));
+
+        // Tags: puede venir como lista o como string JSON
+        List<String> tags = new ArrayList<>();
+        Object tagsRaw = raw.get("tags");
+        if (tagsRaw instanceof List<?>) {
+            for (Object t : (List<?>) tagsRaw) {
+                if (t != null) tags.add(String.valueOf(t));
+            }
+        } else if (tagsRaw instanceof String s) {
+            try {
+                List<String> parsed = objectMapper.readValue(s, new TypeReference<List<String>>() {});
+                if (parsed != null) tags = parsed;
+            } catch (Exception ignore) { /* noop */ }
+        }
+
+        // Logic: puede venir como mapa o string JSON, o derivarse de 'when'
+        Map<String, Object> logic = new HashMap<>();
+        Object logicRaw = raw.get("logic");
+        if (logicRaw instanceof Map<?, ?> m) {
+            logic = (Map<String, Object>) m;
+        } else if (logicRaw instanceof String s) {
+            try {
+                logic = objectMapper.readValue(s, new TypeReference<Map<String, Object>>() {});
+            } catch (Exception ignore) { logic = Map.of(); }
+        } else {
+            logic = Map.of();
+        }
+
+        // Si no hay logic, intentar construirlo desde 'when'
+        if (logic == null || logic.isEmpty()) {
+            Object whenObj = raw.get("when");
+            if (whenObj instanceof Map<?, ?> w) {
+                logic = convertWhenToLogic((Map<String, Object>) w);
+            }
+        }
+
+        // Mensajes: lista de objetos o estructura anidada { locale, candidates: [...] }
+        List<MessageRequest> messages = new ArrayList<>();
+        Object messagesRaw = raw.get("messages");
+        if (messagesRaw instanceof List<?> lst) {
+            for (Object o : lst) {
+                if (o instanceof Map<?, ?> mm) {
+                    messages.add(MessageRequest.builder()
+                            .text(stringVal(mm.get("text")))
+                            .weight(intVal(firstNonNull(mm.get("weight"), 1)))
+                            .active(boolVal(firstNonNull(mm.get("active"), true)))
+                            .locale(stringVal(firstNonNull(mm.get("locale"), locale)))
+                            .build());
+                }
+            }
+        } else if (messagesRaw instanceof Map<?, ?> mm) {
+            String loc = stringVal(firstNonNull(mm.get("locale"), locale));
+            Object candidates = mm.get("candidates");
+            if (candidates instanceof List<?> cList) {
+                for (Object c : cList) {
+                    if (c instanceof Map<?, ?> cm) {
+                        messages.add(MessageRequest.builder()
+                                .text(stringVal(cm.get("text")))
+                                .weight(intVal(firstNonNull(cm.get("weight"), 1)))
+                                .active(boolVal(firstNonNull(cm.get("active"), true)))
+                                .locale(stringVal(firstNonNull(cm.get("locale"), loc)))
+                                .build());
+                    }
+                }
+            }
+        }
+
+        // Fallback: si existen 'candidates' (lista de strings) en YAML tipo rules_basic, generar mensajes simples
+        if (messages.isEmpty()) {
+            Object candidates = raw.get("candidates");
+            if (candidates instanceof List<?> cList) {
+                int i = 1;
+                for (Object c : cList) {
+                    String text = String.valueOf(c);
+                    messages.add(MessageRequest.builder()
+                            .text(text != null && !text.isBlank() ? text : ("Mensaje " + i))
+                            .weight(1)
+                            .active(true)
+                            .locale(locale)
+                            .build());
+                    i++;
+                }
+            }
+        }
+        if (messages.isEmpty()) {
+            // Mensaje por defecto si no se proporcionó
+            messages.add(MessageRequest.builder().text("Mensaje").weight(1).active(true).locale(locale).build());
+        }
+
+        return RuleRequest.builder()
+                .id(id)
+                .tenantId(tenantId)
+                .category(category)
+                .priority(priority)
+                .severity(severity)
+                .cooldownDays(cooldownDays)
+                .maxPerDay(maxPerDay)
+                .enabled(enabled)
+                .tags(tags)
+                .logic(logic)
+                .locale(locale)
+                .messages(messages)
+                .build();
+    }
+
+    private static Object firstNonNull(Object... values) {
+        for (Object v : values) if (v != null) return v; return null;
+    }
+    private static String stringVal(Object o) { return o == null ? null : String.valueOf(o); }
+    private static Integer intVal(Object o) {
+        if (o == null) return null;
+        try { return (o instanceof Number n) ? n.intValue() : Integer.parseInt(String.valueOf(o)); } catch (Exception e) { return null; }
+    }
+    private static Boolean boolVal(Object o) {
+        if (o == null) return null;
+        if (o instanceof Boolean b) return b;
+        String s = String.valueOf(o).trim().toLowerCase();
+        return ("true".equals(s) || "1".equals(s) || "yes".equals(s));
+    }
+
+    private Map<String, Object> convertWhenToLogic(Map<String, Object> when) {
+        List<Map<String, Object>> all = new ArrayList<>();
+
+        for (Map.Entry<String, Object> e : when.entrySet()) {
+            String key = e.getKey();
+            Object val = e.getValue();
+            if ("AND".equalsIgnoreCase(key) && val instanceof Map<?, ?> andMap) {
+                for (Map.Entry<?, ?> se : ((Map<?, ?>) andMap).entrySet()) {
+                    String var = String.valueOf(se.getKey());
+                    addCondition(all, var, String.valueOf(se.getValue()));
+                }
+            } else {
+                addCondition(all, key, String.valueOf(val));
+            }
+        }
+
+        Map<String, Object> logic = new HashMap<>();
+        logic.put("all", all);
+        return logic;
+    }
+
+    private void addCondition(List<Map<String, Object>> all, String var, String raw) {
+        String s = raw.trim();
+        String op = "==";
+        String valueStr = s;
+        if (s.startsWith(">=")) { op = ">="; valueStr = s.substring(2).trim(); }
+        else if (s.startsWith("<=")) { op = "<="; valueStr = s.substring(2).trim(); }
+        else if (s.startsWith(">")) { op = ">"; valueStr = s.substring(1).trim(); }
+        else if (s.startsWith("<")) { op = "<"; valueStr = s.substring(1).trim(); }
+        else if (s.startsWith("==")) { op = "=="; valueStr = s.substring(2).trim(); }
+        else if (s.startsWith("=")) { op = "=="; valueStr = s.substring(1).trim(); }
+
+        Object value;
+        try {
+            if (valueStr.contains(".")) value = Double.parseDouble(valueStr);
+            else value = Integer.parseInt(valueStr);
+        } catch (Exception ex) {
+            value = valueStr;
+        }
+
+        Map<String, Object> cond = new HashMap<>();
+        cond.put("var", var);
+        cond.put("agg", "current");
+        cond.put("op", op);
+        cond.put("value", value);
+        all.add(cond);
     }
 
     /**
@@ -544,6 +779,87 @@ public class RuleController {
     }
 
     /**
+     * Importa reglas desde CSV reformado (formato horizontal con variantes en columnas).
+     * POST /rules/import_csv_reformed
+     */
+    @PostMapping(value = "/import_csv_reformed", consumes = "text/csv")
+    @Transactional
+    public Map<String, Object> importRulesCsvReformed(@RequestBody String csvData) {
+        try {
+            int created = 0;
+            int updated = 0;
+            
+            // Parsear CSV reformado
+            try (CSVReader reader = new CSVReaderBuilder(new StringReader(csvData))
+                    .withSkipLines(1)
+                    .build()) {
+                
+                String[] nextLine;
+                while ((nextLine = reader.readNext()) != null) {
+                    if (nextLine.length < 12) continue; // message_id + category + 10 variantes
+                    
+                    String messageId = nextLine[0].trim();
+                    String category = nextLine[1].trim();
+                    
+                    if (messageId.isEmpty()) continue;
+                    
+                    boolean exists = ruleRepository.existsById(messageId);
+                    Rule rule;
+                    
+                    if (exists) {
+                        rule = ruleRepository.findById(messageId).get();
+                        rule.getMessages().clear(); // Limpiar mensajes existentes
+                        updated++;
+                    } else {
+                        // Crear nueva regla
+                        rule = Rule.builder()
+                                .id(messageId)
+                                .enabled(true)
+                                .tenantId("default")
+                                .category(category)
+                                .priority(50)
+                                .severity(1)
+                                .cooldownDays(0)
+                                .maxPerDay(0)
+                                .locale("es-ES")
+                                .build();
+                        
+                        rule.setTags(List.of());
+                        rule.setLogic(Map.of("var", "steps", "op", ">", "value", 0)); // Lógica por defecto
+                        created++;
+                    }
+                    
+                    // Agregar variantes como mensajes (template_text_v1 hasta template_text_v10)
+                    for (int i = 2; i < Math.min(12, nextLine.length); i++) {
+                        String templateText = nextLine[i].trim();
+                        if (!templateText.isEmpty()) {
+                            RuleMessage message = RuleMessage.builder()
+                                    .rule(rule)
+                                    .text(templateText)
+                                    .weight(1)
+                                    .active(true)
+                                    .locale(rule.getLocale())
+                                    .build();
+                            
+                            rule.addMessage(message);
+                        }
+                    }
+                    
+                    ruleRepository.save(rule);
+                }
+            }
+            
+            log.info("Importación CSV reformado completada: {} creadas, {} actualizadas", created, updated);
+            return Map.of("created", created, "updated", updated);
+            
+        } catch (Exception e) {
+            log.error("Error importando CSV reformado: {}", e.getMessage(), e);
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, 
+                    "Error interno: " + e.getMessage());
+        }
+    }
+
+    /**
      * Extrae el ID base de un message_id (elimina sufijos como _v1, _v2, etc.)
      */
     private String extractBaseId(String messageId) {
@@ -552,26 +868,77 @@ public class RuleController {
     }
 
     /**
-     * Actualiza una regla existente con datos de importación.
+     * Crea una nueva regla desde RuleRequest para importación.
      */
-    private void updateRuleFromData(Rule existingRule, Rule ruleData) {
-        existingRule.setEnabled(ruleData.getEnabled());
-        existingRule.setCategory(ruleData.getCategory());
-        existingRule.setPriority(ruleData.getPriority());
-        existingRule.setSeverity(ruleData.getSeverity());
-        existingRule.setCooldownDays(ruleData.getCooldownDays());
-        existingRule.setMaxPerDay(ruleData.getMaxPerDay());
-        existingRule.setTags(ruleData.getTags());
-        existingRule.setLogic(ruleData.getLogic());
-        existingRule.setLocale(ruleData.getLocale());
+    private Rule createRuleFromRequest(RuleRequest request) {
+        // Crear entidad Rule
+        Rule rule = Rule.builder()
+                .id(request.getId())
+                .version(request.getVersion())
+                .enabled(request.getEnabled())
+                .tenantId(request.getTenantId())
+                .category(request.getCategory())
+                .priority(request.getPriority())
+                .severity(request.getSeverity())
+                .cooldownDays(request.getCooldownDays())
+                .maxPerDay(request.getMaxPerDay())
+                .locale(request.getLocale())
+                .createdBy(request.getCreatedBy())
+                .updatedBy(request.getUpdatedBy())
+                .build();
+
+        rule.setTags(request.getTags());
+        rule.setLogic(request.getLogic());
+
+        // Guardar regla primero
+        rule = ruleRepository.save(rule);
+
+        // Crear mensajes
+        for (MessageRequest msgReq : request.getMessages()) {
+            RuleMessage message = RuleMessage.builder()
+                    .rule(rule)
+                    .text(msgReq.getText())
+                    .weight(msgReq.getWeight())
+                    .active(msgReq.getActive())
+                    .locale(msgReq.getLocale() != null ? msgReq.getLocale() : rule.getLocale())
+                    .build();
+            
+            rule.addMessage(message);
+        }
+
+        return ruleRepository.save(rule);
+    }
+
+    /**
+     * Actualiza una regla existente con datos de RuleRequest para importación.
+     */
+    private void updateRuleFromRequest(Rule existingRule, RuleRequest request) {
+        existingRule.setEnabled(request.getEnabled());
+        existingRule.setCategory(request.getCategory());
+        existingRule.setPriority(request.getPriority());
+        existingRule.setSeverity(request.getSeverity());
+        existingRule.setCooldownDays(request.getCooldownDays());
+        existingRule.setMaxPerDay(request.getMaxPerDay());
+        existingRule.setTags(request.getTags());
+        existingRule.setLogic(request.getLogic());
+        existingRule.setLocale(request.getLocale());
         
         // Reemplazar mensajes
         existingRule.getMessages().clear();
-        for (RuleMessage message : ruleData.getMessages()) {
-            message.setRule(existingRule);
+        for (MessageRequest msgReq : request.getMessages()) {
+            RuleMessage message = RuleMessage.builder()
+                    .rule(existingRule)
+                    .text(msgReq.getText())
+                    .weight(msgReq.getWeight())
+                    .active(msgReq.getActive())
+                    .locale(msgReq.getLocale() != null ? msgReq.getLocale() : existingRule.getLocale())
+                    .build();
+            
             existingRule.addMessage(message);
         }
         
         ruleRepository.save(existingRule);
     }
+
 }
+

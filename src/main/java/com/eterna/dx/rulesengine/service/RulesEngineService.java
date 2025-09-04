@@ -211,6 +211,7 @@ public class RulesEngineService {
                     .tenantId(tenantId)
                     .userId(userId)
                     .ruleId(rule.getId())
+                    .ruleName(rule.getId()) // Por ahora usar el ID como nombre
                     .category(rule.getCategory())
                     .severity(rule.getSeverity())
                     .priority(rule.getPriority())
@@ -330,3 +331,4 @@ public class RulesEngineService {
         return buildUserFeatures(userId, date);
     }
 }
+

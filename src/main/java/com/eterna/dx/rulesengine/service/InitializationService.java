@@ -16,9 +16,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.InputStream;
+import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.CSVParserBuilder;
 
 /**
  * Servicio de inicialización que carga datos de seed al arrancar la aplicación.
@@ -40,6 +49,9 @@ public class InitializationService implements CommandLineRunner {
 
         // Cargar variables
         seedVariables();
+        
+        // Cargar variables adicionales desde CSVs
+        seedVariablesFromCsv();
 
         // Cargar reglas
         seedRules();
@@ -251,4 +263,142 @@ public class InitializationService implements CommandLineRunner {
             return null;
         }
     }
+
+    /**
+     * Carga variables automáticamente desde los archivos CSV.
+     */
+    private void seedVariablesFromCsv() {
+        try {
+            Set<String> existingKeys = new HashSet<>();
+            variableRepository.findAll().forEach(v -> existingKeys.add(v.getKey()));
+
+            int totalLoaded = 0;
+            
+            // Cargar variables desde patient_daily_data.csv
+            totalLoaded += loadVariablesFromCsv("data/patient_daily_data.csv", "daily", existingKeys);
+            
+            // Cargar variables desde patient_sleep_data.csv  
+            totalLoaded += loadVariablesFromCsv("data/patient_sleep_data.csv", "sleep", existingKeys);
+            
+            log.info("Cargadas {} variables adicionales desde CSVs", totalLoaded);
+            
+        } catch (Exception e) {
+            log.error("Error cargando variables desde CSVs: {}", e.getMessage(), e);
+        }
+    }
+
+    private int loadVariablesFromCsv(String csvPath, String category, Set<String> existingKeys) {
+        try {
+            Path path = Paths.get(csvPath);
+            if (!Files.exists(path)) {
+                log.warn("Archivo CSV no encontrado: {}", csvPath);
+                return 0;
+            }
+
+            int loaded = 0;
+            try (CSVReader reader = new CSVReaderBuilder(new FileReader(csvPath))
+                    .withCSVParser(new CSVParserBuilder().withSeparator(';').build())
+                    .build()) {
+                
+                String[] headers = reader.readNext();
+                if (headers == null) return 0;
+
+                for (String header : headers) {
+                    String cleanHeader = header.trim();
+                    if (cleanHeader.isEmpty() || existingKeys.contains(cleanHeader)) {
+                        continue;
+                    }
+
+                    // Crear variable basada en el nombre de la columna
+                    Variable variable = createVariableFromHeader(cleanHeader, category);
+                    if (variable != null) {
+                        variableRepository.save(variable);
+                        existingKeys.add(cleanHeader);
+                        loaded++;
+                    }
+                }
+            }
+            
+            log.info("Cargadas {} variables desde {}", loaded, csvPath);
+            return loaded;
+            
+        } catch (Exception e) {
+            log.error("Error procesando CSV {}: {}", csvPath, e.getMessage());
+            return 0;
+        }
+    }
+
+    private Variable createVariableFromHeader(String header, String category) {
+        try {
+            String label = formatLabel(header);
+            String description = generateDescription(header);
+            String type = inferType(header);
+            String unit = inferUnit(header);
+            
+            Variable variable = Variable.builder()
+                    .key(header)
+                    .label(label)
+                    .description(description)
+                    .type(type)
+                    .unit(unit)
+                    .category(category)
+                    .tenantId("default")
+                    .missingPolicy("skip")
+                    .build();
+            
+            variable.setAllowedAggregators(List.of("current", "avg", "sum", "min", "max", "count"));
+            return variable;
+                    
+        } catch (Exception e) {
+            log.error("Error creando variable para header {}: {}", header, e.getMessage());
+            return null;
+        }
+    }
+
+    private String formatLabel(String header) {
+        String[] words = header.replace("_", " ")
+                              .replace("-", " ")
+                              .toLowerCase()
+                              .split("\\s+");
+        
+        StringBuilder result = new StringBuilder();
+        for (String word : words) {
+            if (word.length() > 0) {
+                result.append(Character.toUpperCase(word.charAt(0)))
+                      .append(word.substring(1))
+                      .append(" ");
+            }
+        }
+        return result.toString().trim();
+    }
+
+    private String generateDescription(String header) {
+        String base = formatLabel(header);
+        if (header.contains("bpm")) return base + " (latidos por minuto)";
+        if (header.contains("minutes")) return base + " en minutos";
+        if (header.contains("seconds")) return base + " en segundos";
+        if (header.contains("meters")) return base + " en metros";
+        if (header.contains("calories")) return base + " (calorías)";
+        if (header.contains("steps")) return base + " (pasos)";
+        if (header.contains("date")) return base + " (fecha)";
+        if (header.contains("time")) return base + " (tiempo)";
+        return "Variable " + base;
+    }
+
+    private String inferType(String header) {
+        if (header.contains("date") || header.contains("time")) return "date";
+        if (header.contains("id")) return "string";
+        return "number";
+    }
+
+    private String inferUnit(String header) {
+        if (header.contains("bpm")) return "bpm";
+        if (header.contains("minutes")) return "min";
+        if (header.contains("seconds")) return "s";
+        if (header.contains("meters")) return "m";
+        if (header.contains("calories")) return "cal";
+        if (header.contains("steps")) return "pasos";
+        return null;
+    }
 }
+

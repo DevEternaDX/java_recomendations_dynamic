@@ -14,3 +14,4 @@ public class RulesEngineApplication {
         SpringApplication.run(RulesEngineApplication.class, args);
     }
 }
+

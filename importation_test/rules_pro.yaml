@@ -1,0 +1,1074 @@
+R-SLP-SCORE-LOWER-SEVERITY1:
+  when:
+    sleep_score: "< 80"
+    AND:
+      sleep_score: ">= 70"
+  category: sueño
+  candidates: ["SLP_SCORE_LOWER_SEVERITY1_V1", "SLP_SCORE_LOWER_SEVERITY1_V2", "SLP_SCORE_LOWER_SEVERITY1_V3", "SLP_SCORE_LOWER_SEVERITY1_V4", "SLP_SCORE_LOWER_SEVERITY1_V5", "SLP_SCORE_LOWER_SEVERITY1_V6", "SLP_SCORE_LOWER_SEVERITY1_V7", "SLP_SCORE_LOWER_SEVERITY1_V8", "SLP_SCORE_LOWER_SEVERITY1_V9", "SLP_SCORE_LOWER_SEVERITY1_V10"]
+
+R-SLP-SCORE-LOWER-SEVERITY2:
+  when:
+    sleep_score: "< 70"
+    AND:
+      sleep_score: ">= 60"
+  category: sueño
+  candidates: ["SLP_SCORE_LOWER_SEVERITY2_V1", "SLP_SCORE_LOWER_SEVERITY2_V2", "SLP_SCORE_LOWER_SEVERITY2_V3", "SLP_SCORE_LOWER_SEVERITY2_V4", "SLP_SCORE_LOWER_SEVERITY2_V5", "SLP_SCORE_LOWER_SEVERITY2_V6", "SLP_SCORE_LOWER_SEVERITY2_V7", "SLP_SCORE_LOWER_SEVERITY2_V8", "SLP_SCORE_LOWER_SEVERITY2_V9", "SLP_SCORE_LOWER_SEVERITY2_V10"]
+
+R-SLP-SCORE-LOWER-SEVERITY3:
+  when:
+    sleep_score: "< 60"
+  category: sueño
+  candidates: ["SLP_SCORE_LOWER_SEVERITY3_V1", "SLP_SCORE_LOWER_SEVERITY3_V2", "SLP_SCORE_LOWER_SEVERITY3_V3", "SLP_SCORE_LOWER_SEVERITY3_V4", "SLP_SCORE_LOWER_SEVERITY3_V5", "SLP_SCORE_LOWER_SEVERITY3_V6", "SLP_SCORE_LOWER_SEVERITY3_V7", "SLP_SCORE_LOWER_SEVERITY3_V8", "SLP_SCORE_LOWER_SEVERITY3_V9", "SLP_SCORE_LOWER_SEVERITY3_V10"]
+
+R-SLP-SCORE-UPPER-SEVERITY1:
+  when:
+    sleep_score: ">= 80"
+    AND:
+      sleep_score: "< 90"
+  category: sueño
+  candidates: ["SLP_SCORE_UPPER_SEVERITY1_V1", "SLP_SCORE_UPPER_SEVERITY1_V2", "SLP_SCORE_UPPER_SEVERITY1_V3", "SLP_SCORE_UPPER_SEVERITY1_V4", "SLP_SCORE_UPPER_SEVERITY1_V5", "SLP_SCORE_UPPER_SEVERITY1_V6", "SLP_SCORE_UPPER_SEVERITY1_V7", "SLP_SCORE_UPPER_SEVERITY1_V8", "SLP_SCORE_UPPER_SEVERITY1_V9", "SLP_SCORE_UPPER_SEVERITY1_V10"]
+
+R-SLP-SCORE-UPPER-SEVERITY2:
+  when:
+    sleep_score: ">= 90"
+  category: sueño
+  candidates: ["SLP_SCORE_UPPER_SEVERITY2_V1", "SLP_SCORE_UPPER_SEVERITY2_V2", "SLP_SCORE_UPPER_SEVERITY2_V3", "SLP_SCORE_UPPER_SEVERITY2_V4", "SLP_SCORE_UPPER_SEVERITY2_V5", "SLP_SCORE_UPPER_SEVERITY2_V6", "SLP_SCORE_UPPER_SEVERITY2_V7", "SLP_SCORE_UPPER_SEVERITY2_V8", "SLP_SCORE_UPPER_SEVERITY2_V9", "SLP_SCORE_UPPER_SEVERITY2_V10"]
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+R-SLP-EFF-LOWER-SEVERITY1:
+  when:
+    sleep_efficiency: "< 85"
+    AND:
+      sleep_efficiency: ">= 75"
+  category: sueño
+  candidates: ["SLP_EFF_LOWER_SEVERITY1_V1", "SLP_EFF_LOWER_SEVERITY1_V2", "SLP_EFF_LOWER_SEVERITY1_V3", "SLP_EFF_LOWER_SEVERITY1_V4", "SLP_EFF_LOWER_SEVERITY1_V5", "SLP_EFF_LOWER_SEVERITY1_V6", "SLP_EFF_LOWER_SEVERITY1_V7", "SLP_EFF_LOWER_SEVERITY1_V8", "SLP_EFF_LOWER_SEVERITY1_V9", "SLP_EFF_LOWER_SEVERITY1_V10"]
+
+R-SLP-EFF-LOWER-SEVERITY2:
+
+  when:
+    sleep_efficiency: "< 75"
+    AND:
+      sleep_efficiency: ">= 65"
+  category: sueño
+  candidates: ["SLP_EFF_LOWER_SEVERITY2_V1", "SLP_EFF_LOWER_SEVERITY2_V2", "SLP_EFF_LOWER_SEVERITY2_V3", "SLP_EFF_LOWER_SEVERITY2_V4", "SLP_EFF_LOWER_SEVERITY2_V5", "SLP_EFF_LOWER_SEVERITY2_V6", "SLP_EFF_LOWER_SEVERITY2_V7", "SLP_EFF_LOWER_SEVERITY2_V8", "SLP_EFF_LOWER_SEVERITY2_V9", "SLP_EFF_LOWER_SEVERITY2_V10"]
+
+R-SLP-EFF-LOWER-SEVERITY3:
+  when:
+    sleep_efficiency: "< 65"
+  category: sueño
+  candidates: ["SLP_EFF_LOWER_SEVERITY3_V1", "SLP_EFF_LOWER_SEVERITY3_V2", "SLP_EFF_LOWER_SEVERITY3_V3", "SLP_EFF_LOWER_SEVERITY3_V4", "SLP_EFF_LOWER_SEVERITY3_V5", "SLP_EFF_LOWER_SEVERITY3_V6", "SLP_EFF_LOWER_SEVERITY3_V7", "SLP_EFF_LOWER_SEVERITY3_V8", "SLP_EFF_LOWER_SEVERITY3_V9", "SLP_EFF_LOWER_SEVERITY3_V10"]
+
+R-SLP-EFF-UPPER-SEVERITY1:
+  when:
+    sleep_efficiency: ">= 85"
+    AND:
+      sleep_efficiency: "< 95"
+  category: sueño
+  candidates: ["SLP_EFF_UPPER_SEVERITY1_V1", "SLP_EFF_UPPER_SEVERITY1_V2", "SLP_EFF_UPPER_SEVERITY1_V3", "SLP_EFF_UPPER_SEVERITY1_V4", "SLP_EFF_UPPER_SEVERITY1_V5", "SLP_EFF_UPPER_SEVERITY1_V6", "SLP_EFF_UPPER_SEVERITY1_V7", "SLP_EFF_UPPER_SEVERITY1_V8", "SLP_EFF_UPPER_SEVERITY1_V9", "SLP_EFF_UPPER_SEVERITY1_V10"]
+
+R-SLP-EFF-UPPER-SEVERITY2:
+  when:
+    sleep_efficiency: ">= 95"
+  category: sueño
+  candidates: ["SLP_EFF_UPPER_SEVERITY2_V1", "SLP_EFF_UPPER_SEVERITY2_V2", "SLP_EFF_UPPER_SEVERITY2_V3", "SLP_EFF_UPPER_SEVERITY2_V4", "SLP_EFF_UPPER_SEVERITY2_V5", "SLP_EFF_UPPER_SEVERITY2_V6", "SLP_EFF_UPPER_SEVERITY2_V7", "SLP_EFF_UPPER_SEVERITY2_V8", "SLP_EFF_UPPER_SEVERITY2_V9", "SLP_EFF_UPPER_SEVERITY2_V10"]
+
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+R-ACT-DAILY-LOWER-SEVERITY1:
+  when:
+    daily_activity_score: "< 60"
+    AND:
+      daily_activity_score: ">= 50"
+  category: actividad
+  candidates: ["ACT_DAILY_LOWER_SEVERITY1_V1", "ACT_DAILY_LOWER_SEVERITY1_V2", "ACT_DAILY_LOWER_SEVERITY1_V3", "ACT_DAILY_LOWER_SEVERITY1_V4", "ACT_DAILY_LOWER_SEVERITY1_V5", "ACT_DAILY_LOWER_SEVERITY1_V6", "ACT_DAILY_LOWER_SEVERITY1_V7", "ACT_DAILY_LOWER_SEVERITY1_V8", "ACT_DAILY_LOWER_SEVERITY1_V9", "ACT_DAILY_LOWER_SEVERITY1_V10"]
+
+R-ACT-DAILY-LOWER-SEVERITY2:
+  when:
+    daily_activity_score: "< 50"
+    AND:
+      daily_activity_score: ">= 40"
+  category: actividad
+  candidates: ["ACT_DAILY_LOWER_SEVERITY2_V1", "ACT_DAILY_LOWER_SEVERITY2_V2", "ACT_DAILY_LOWER_SEVERITY2_V3", "ACT_DAILY_LOWER_SEVERITY2_V4", "ACT_DAILY_LOWER_SEVERITY2_V5", "ACT_DAILY_LOWER_SEVERITY2_V6", "ACT_DAILY_LOWER_SEVERITY2_V7", "ACT_DAILY_LOWER_SEVERITY2_V8", "ACT_DAILY_LOWER_SEVERITY2_V9", "ACT_DAILY_LOWER_SEVERITY2_V10"]
+
+R-ACT-DAILY-LOWER-SEVERITY3:
+  when:
+    daily_activity_score: "< 40"
+  category: actividad
+  candidates: ["ACT_DAILY_LOWER_SEVERITY3_V1", "ACT_DAILY_LOWER_SEVERITY3_V2", "ACT_DAILY_LOWER_SEVERITY3_V3", "ACT_DAILY_LOWER_SEVERITY3_V4", "ACT_DAILY_LOWER_SEVERITY3_V5", "ACT_DAILY_LOWER_SEVERITY3_V6", "ACT_DAILY_LOWER_SEVERITY3_V7", "ACT_DAILY_LOWER_SEVERITY3_V8", "ACT_DAILY_LOWER_SEVERITY3_V9", "ACT_DAILY_LOWER_SEVERITY3_V10"]
+
+R-ACT-DAILY-UPPER-SEVERITY1:
+  when:
+    daily_activity_score: ">= 60"
+    AND:
+      daily_activity_score: "< 85"
+  category: actividad
+  candidates: ["ACT_DAILY_LOWER_SEVERITY1_V1", "ACT_DAILY_LOWER_SEVERITY1_V2", "ACT_DAILY_LOWER_SEVERITY1_V3", "ACT_DAILY_LOWER_SEVERITY1_V4", "ACT_DAILY_LOWER_SEVERITY1_V5", "ACT_DAILY_LOWER_SEVERITY1_V6", "ACT_DAILY_LOWER_SEVERITY1_V7", "ACT_DAILY_LOWER_SEVERITY1_V8", "ACT_DAILY_LOWER_SEVERITY1_V9", "ACT_DAILY_LOWER_SEVERITY1_V10"]
+
+R-ACT-DAILY-UPPER-SEVERITY2:
+  when:
+    daily_activity_score: ">= 85"
+  category: actividad
+  candidates: ["ACT_DAILY_UPPER_SEVERITY2_V1", "ACT_DAILY_UPPER_SEVERITY2_V2", "ACT_DAILY_UPPER_SEVERITY2_V3", "ACT_DAILY_UPPER_SEVERITY2_V4", "ACT_DAILY_UPPER_SEVERITY2_V5", "ACT_DAILY_UPPER_SEVERITY2_V6", "ACT_DAILY_UPPER_SEVERITY2_V7", "ACT_DAILY_UPPER_SEVERITY2_V8", "ACT_DAILY_UPPER_SEVERITY2_V9", "ACT_DAILY_UPPER_SEVERITY2_V10"]
+
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+
+R-ACT-ACWR-LOWER-SEVERITY1:
+  when:
+    acwr: "< 1.2"
+    AND:
+      acwr: ">= 0.8"
+  category: actividad
+  candidates: ["ACT_ACWR_LOWER_SEVERITY1_V1", "ACT_ACWR_LOWER_SEVERITY1_V2", "ACT_ACWR_LOWER_SEVERITY1_V3", "ACT_ACWR_LOWER_SEVERITY1_V4", "ACT_ACWR_LOWER_SEVERITY1_V5", "ACT_ACWR_LOWER_SEVERITY1_V6", "ACT_ACWR_LOWER_SEVERITY1_V7", "ACT_ACWR_LOWER_SEVERITY1_V8", "ACT_ACWR_LOWER_SEVERITY1_V9", "ACT_ACWR_LOWER_SEVERITY1_V10"]
+
+R-ACT-ACWR-LOWER-SEVERITY2:
+  when:
+    acwr: "< 0.8"
+    AND:
+      acwr: ">= 0.5"
+  category: actividad
+  candidates: ["ACT_ACWR_LOWER_SEVERITY2_V1", "ACT_ACWR_LOWER_SEVERITY2_V2", "ACT_ACWR_LOWER_SEVERITY2_V3", "ACT_ACWR_LOWER_SEVERITY2_V4", "ACT_ACWR_LOWER_SEVERITY2_V5", "ACT_ACWR_LOWER_SEVERITY2_V6", "ACT_ACWR_LOWER_SEVERITY2_V7", "ACT_ACWR_LOWER_SEVERITY2_V8", "ACT_ACWR_LOWER_SEVERITY2_V9", "ACT_ACWR_LOWER_SEVERITY2_V10"]
+
+R-ACT-ACWR-LOWER-SEVERITY3:
+  when:
+    acwr: "< 0.5"
+  category: actividad
+  candidates: ["ACT_ACWR_LOWER_SEVERITY3_V1", "ACT_ACWR_LOWER_SEVERITY3_V2", "ACT_ACWR_LOWER_SEVERITY3_V3", "ACT_ACWR_LOWER_SEVERITY3_V4", "ACT_ACWR_LOWER_SEVERITY3_V5", "ACT_ACWR_LOWER_SEVERITY3_V6", "ACT_ACWR_LOWER_SEVERITY3_V7", "ACT_ACWR_LOWER_SEVERITY3_V8", "ACT_ACWR_LOWER_SEVERITY3_V9", "ACT_ACWR_LOWER_SEVERITY3_V10"]
+
+
+R-ACT-ACWR-UPPER-SEVERITY1:
+  when:
+    acwr: ">= 1.2"
+    AND:
+      acwr: "< 1.5"
+  category: actividad
+  candidates: ["ACT_ACWR_UPPER_SEVERITY1_V1", "ACT_ACWR_UPPER_SEVERITY1_V2", "ACT_ACWR_UPPER_SEVERITY1_V3", "ACT_ACWR_UPPER_SEVERITY1_V4", "ACT_ACWR_UPPER_SEVERITY1_V5", "ACT_ACWR_UPPER_SEVERITY1_V6", "ACT_ACWR_UPPER_SEVERITY1_V7", "ACT_ACWR_UPPER_SEVERITY1_V8", "ACT_ACWR_UPPER_SEVERITY1_V9", "ACT_ACWR_UPPER_SEVERITY1_V10"]
+
+R-ACT-ACWR-UPPER-SEVERITY2:
+  when:
+    acwr: ">= 1.5"
+    AND:
+      acwr: "< 2.0"
+  category: actividad
+  candidates: ["ACT_ACWR_UPPER_SEVERITY2_V1", "ACT_ACWR_UPPER_SEVERITY2_V2", "ACT_ACWR_UPPER_SEVERITY2_V3", "ACT_ACWR_UPPER_SEVERITY2_V4", "ACT_ACWR_UPPER_SEVERITY2_V5", "ACT_ACWR_UPPER_SEVERITY2_V6", "ACT_ACWR_UPPER_SEVERITY2_V7", "ACT_ACWR_UPPER_SEVERITY2_V8", "ACT_ACWR_UPPER_SEVERITY2_V9", "ACT_ACWR_UPPER_SEVERITY2_V10"]
+
+R-ACT-ACWR-UPPER-SEVERITY3:
+  when:
+    acwr: ">= 2.0"
+  category: actividad
+  candidates: ["ACT_ACWR_UPPER_SEVERITY3_V1", "ACT_ACWR_UPPER_SEVERITY3_V2", "ACT_ACWR_UPPER_SEVERITY3_V3", "ACT_ACWR_UPPER_SEVERITY3_V4", "ACT_ACWR_UPPER_SEVERITY3_V5", "ACT_ACWR_UPPER_SEVERITY3_V6", "ACT_ACWR_UPPER_SEVERITY3_V7", "ACT_ACWR_UPPER_SEVERITY3_V8", "ACT_ACWR_UPPER_SEVERITY3_V9", "ACT_ACWR_UPPER_SEVERITY3_V10"]
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+R-REC-VO2-LOWER-SEVERITY1:
+  when:
+    estimated_vo2max: "< 50"
+    AND:
+      estimated_vo2max: ">= 43"
+  category: recuperación
+  candidates: ["REC_VO2_LOWER_SEVERITY1_V1", "REC_VO2_LOWER_SEVERITY1_V2", "REC_VO2_LOWER_SEVERITY1_V3", "REC_VO2_LOWER_SEVERITY1_V4", "REC_VO2_LOWER_SEVERITY1_V5", "REC_VO2_LOWER_SEVERITY1_V6", "REC_VO2_LOWER_SEVERITY1_V7", "REC_VO2_LOWER_SEVERITY1_V8", "REC_VO2_LOWER_SEVERITY1_V9", "REC_VO2_LOWER_SEVERITY1_V10"]
+
+R-REC-VO2-LOWER-SEVERITY2:
+  when:
+    estimated_vo2max: "< 43"
+    AND:
+      estimated_vo2max: ">= 30"
+  category: recuperación
+  candidates: ["REC_VO2_LOWER_SEVERITY2_V1", "REC_VO2_LOWER_SEVERITY2_V2", "REC_VO2_LOWER_SEVERITY2_V3", "REC_VO2_LOWER_SEVERITY2_V4", "REC_VO2_LOWER_SEVERITY2_V5", "REC_VO2_LOWER_SEVERITY2_V6", "REC_VO2_LOWER_SEVERITY2_V7", "REC_VO2_LOWER_SEVERITY2_V8", "REC_VO2_LOWER_SEVERITY2_V9", "REC_VO2_LOWER_SEVERITY2_V10"]
+
+R-REC-VO2-LOWER-SEVERITY3:
+  when:
+    estimated_vo2max: "< 30"
+  category: recuperación
+  candidates: ["REC_VO2_LOWER_SEVERITY3_V1", "REC_VO2_LOWER_SEVERITY3_V2", "REC_VO2_LOWER_SEVERITY3_V3", "REC_VO2_LOWER_SEVERITY3_V4", "REC_VO2_LOWER_SEVERITY3_V5", "REC_VO2_LOWER_SEVERITY3_V6", "REC_VO2_LOWER_SEVERITY3_V7", "REC_VO2_LOWER_SEVERITY3_V8", "REC_VO2_LOWER_SEVERITY3_V9", "REC_VO2_LOWER_SEVERITY3_V10"]
+
+
+R-REC-VO2-UPPER-SEVERITY1:
+  when:
+    estimated_vo2max: "> 50"
+    AND:
+      estimated_vo2max: "<= 56"
+  category: recuperación
+  candidates: ["REC_VO2_UPPER_SEVERITY1_V1", "REC_VO2_UPPER_SEVERITY1_V2", "REC_VO2_UPPER_SEVERITY1_V3", "REC_VO2_UPPER_SEVERITY1_V4", "REC_VO2_UPPER_SEVERITY1_V5", "REC_VO2_UPPER_SEVERITY1_V6", "REC_VO2_UPPER_SEVERITY1_V7", "REC_VO2_UPPER_SEVERITY1_V8", "REC_VO2_UPPER_SEVERITY1_V9", "REC_VO2_UPPER_SEVERITY1_V10"]
+
+R-REC-VO2-UPPER-SEVERITY2:  
+  when:
+    estimated_vo2max: "> 56"
+  category: recuperación
+  candidates: ["REC_VO2_UPPER_SEVERITY2_V1", "REC_VO2_UPPER_SEVERITY2_V2", "REC_VO2_UPPER_SEVERITY2_V3", "REC_VO2_UPPER_SEVERITY2_V4", "REC_VO2_UPPER_SEVERITY2_V5", "REC_VO2_UPPER_SEVERITY2_V6", "REC_VO2_UPPER_SEVERITY2_V7", "REC_VO2_UPPER_SEVERITY2_V8", "REC_VO2_UPPER_SEVERITY2_V9", "REC_VO2_UPPER_SEVERITY2_V10"]
+
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+
+R-REC-HRV-RHR-LOWER-SEVERITY1:
+  when:
+    hrv_rhr_ratio: "< 0.7"
+    AND:
+      hrv_rhr_ratio: ">= 0.5"
+  category: recuperación
+  candidates: ["REC_HRV_RHR_LOWER_SEVERITY1_V1", "REC_HRV_RHR_LOWER_SEVERITY1_V2", "REC_HRV_RHR_LOWER_SEVERITY1_V3", "REC_HRV_RHR_LOWER_SEVERITY1_V4", "REC_HRV_RHR_LOWER_SEVERITY1_V5", "REC_HRV_RHR_LOWER_SEVERITY1_V6", "REC_HRV_RHR_LOWER_SEVERITY1_V7", "REC_HRV_RHR_LOWER_SEVERITY1_V8", "REC_HRV_RHR_LOWER_SEVERITY1_V9", "REC_HRV_RHR_LOWER_SEVERITY1_V10"]
+
+R-REC-HRV-RHR-LOWER-SEVERITY2:
+  when:
+    hrv_rhr_ratio: "< 0.5"
+    AND:
+      hrv_rhr_ratio: ">= 0.3"
+  category: recuperación
+  candidates: ["REC_HRV_RHR_LOWER_SEVERITY2_V1", "REC_HRV_RHR_LOWER_SEVERITY2_V2", "REC_HRV_RHR_LOWER_SEVERITY2_V3", "REC_HRV_RHR_LOWER_SEVERITY2_V4", "REC_HRV_RHR_LOWER_SEVERITY2_V5", "REC_HRV_RHR_LOWER_SEVERITY2_V6", "REC_HRV_RHR_LOWER_SEVERITY2_V7", "REC_HRV_RHR_LOWER_SEVERITY2_V8", "REC_HRV_RHR_LOWER_SEVERITY2_V9", "REC_HRV_RHR_LOWER_SEVERITY2_V10"]
+
+R-REC-HRV-RHR-LOWER-SEVERITY3:
+  when:
+    hrv_rhr_ratio: "< 0.3"
+  category: recuperación
+  candidates: ["REC_HRV_RHR_LOWER_SEVERITY3_V1", "REC_HRV_RHR_LOWER_SEVERITY3_V2", "REC_HRV_RHR_LOWER_SEVERITY3_V3", "REC_HRV_RHR_LOWER_SEVERITY3_V4", "REC_HRV_RHR_LOWER_SEVERITY3_V5", "REC_HRV_RHR_LOWER_SEVERITY3_V6", "REC_HRV_RHR_LOWER_SEVERITY3_V7", "REC_HRV_RHR_LOWER_SEVERITY3_V8", "REC_HRV_RHR_LOWER_SEVERITY3_V9", "REC_HRV_RHR_LOWER_SEVERITY3_V10"]
+
+
+R-REC-HRV-RHR-UPPER-SEVERITY1:
+  when:
+    hrv_rhr_ratio: ">= 0.7"
+    AND:
+      hrv_rhr_ratio: "< 1.0"
+  category: recuperación
+  candidates: ["REC_HRV_RHR_UPPER_SEVERITY1_V1", "REC_HRV_RHR_UPPER_SEVERITY1_V2", "REC_HRV_RHR_UPPER_SEVERITY1_V3", "REC_HRV_RHR_UPPER_SEVERITY1_V4", "REC_HRV_RHR_UPPER_SEVERITY1_V5", "REC_HRV_RHR_UPPER_SEVERITY1_V6", "REC_HRV_RHR_UPPER_SEVERITY1_V7", "REC_HRV_RHR_UPPER_SEVERITY1_V8", "REC_HRV_RHR_UPPER_SEVERITY1_V9", "REC_HRV_RHR_UPPER_SEVERITY1_V10"]
+
+R-REC-HRV-RHR-UPPER-SEVERITY2:
+  when:
+    hrv_rhr_ratio: ">= 1.0"
+    AND:
+      hrv_rhr_ratio: "< 1.5"
+  category: recuperación
+  candidates: ["REC_HRV_RHR_UPPER_SEVERITY2_V1", "REC_HRV_RHR_UPPER_SEVERITY2_V2", "REC_HRV_RHR_UPPER_SEVERITY2_V3", "REC_HRV_RHR_UPPER_SEVERITY2_V4", "REC_HRV_RHR_UPPER_SEVERITY2_V5", "REC_HRV_RHR_UPPER_SEVERITY2_V6", "REC_HRV_RHR_UPPER_SEVERITY2_V7", "REC_HRV_RHR_UPPER_SEVERITY2_V8", "REC_HRV_RHR_UPPER_SEVERITY2_V9", "REC_HRV_RHR_UPPER_SEVERITY2_V10"]
+
+R-REC-HRV-RHR-UPPER-SEVERITY3:
+  when:
+    hrv_rhr_ratio: ">= 1.5"
+  category: recuperación
+  candidates: ["REC_HRV_RHR_UPPER_SEVERITY3_V1", "REC_HRV_RHR_UPPER_SEVERITY3_V2", "REC_HRV_RHR_UPPER_SEVERITY3_V3", "REC_HRV_RHR_UPPER_SEVERITY3_V4", "REC_HRV_RHR_UPPER_SEVERITY3_V5", "REC_HRV_RHR_UPPER_SEVERITY3_V6", "REC_HRV_RHR_UPPER_SEVERITY3_V7", "REC_HRV_RHR_UPPER_SEVERITY3_V8", "REC_HRV_RHR_UPPER_SEVERITY3_V9", "REC_HRV_RHR_UPPER_SEVERITY3_V10"]
+
+
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+R-REC-READINESS-LOWER-SEVERITY1:
+  when:
+    readiness_score: ">55"
+    AND:
+      readiness_score: "<= 69"
+  category: recuperación
+  candidates: ["REC_READINESS_LOWER_SEVERITY1_V1", "REC_READINESS_LOWER_SEVERITY1_V2", "REC_READINESS_LOWER_SEVERITY1_V3", "REC_READINESS_LOWER_SEVERITY1_V4", "REC_READINESS_LOWER_SEVERITY1_V5", "REC_READINESS_LOWER_SEVERITY1_V6", "REC_READINESS_LOWER_SEVERITY1_V7", "REC_READINESS_LOWER_SEVERITY1_V8", "REC_READINESS_LOWER_SEVERITY1_V9", "REC_READINESS_LOWER_SEVERITY1_V10"]
+
+R-REC-READINESS-LOWER-SEVERITY2:
+  when:
+    readiness_score: ">40"
+    AND:
+      readiness_score: "<= 55"
+  category: recuperación
+  candidates: ["REC_READINESS_LOWER_SEVERITY2_V1", "REC_READINESS_LOWER_SEVERITY2_V2", "REC_READINESS_LOWER_SEVERITY2_V3", "REC_READINESS_LOWER_SEVERITY2_V4", "REC_READINESS_LOWER_SEVERITY2_V5", "REC_READINESS_LOWER_SEVERITY2_V6", "REC_READINESS_LOWER_SEVERITY2_V7", "REC_READINESS_LOWER_SEVERITY2_V8", "REC_READINESS_LOWER_SEVERITY2_V9", "REC_READINESS_LOWER_SEVERITY2_V10"]
+
+R-REC-READINESS-LOWER-SEVERITY3:
+  when:
+    readiness_score: "<= 40"
+  category: recuperación
+  candidates: ["REC_READINESS_LOWER_SEVERITY3_V1", "REC_READINESS_LOWER_SEVERITY3_V2", "REC_READINESS_LOWER_SEVERITY3_V3", "REC_READINESS_LOWER_SEVERITY3_V4", "REC_READINESS_LOWER_SEVERITY3_V5", "REC_READINESS_LOWER_SEVERITY3_V6", "REC_READINESS_LOWER_SEVERITY3_V7", "REC_READINESS_LOWER_SEVERITY3_V8", "REC_READINESS_LOWER_SEVERITY3_V9", "REC_READINESS_LOWER_SEVERITY3_V10"]
+
+
+R-REC-READINESS-UPPER-SEVERITY1:
+  when:
+    readiness_score: "> 69"
+    AND:
+      readiness_score: "<= 84"
+  category: recuperación
+  candidates: ["REC_READINESS_UPPER_SEVERITY1_V1", "REC_READINESS_UPPER_SEVERITY1_V2", "REC_READINESS_UPPER_SEVERITY1_V3", "REC_READINESS_UPPER_SEVERITY1_V4", "REC_READINESS_UPPER_SEVERITY1_V5", "REC_READINESS_UPPER_SEVERITY1_V6", "REC_READINESS_UPPER_SEVERITY1_V7", "REC_READINESS_UPPER_SEVERITY1_V8", "REC_READINESS_UPPER_SEVERITY1_V9", "REC_READINESS_UPPER_SEVERITY1_V10"]
+
+R-REC-READINESS-UPPER-SEVERITY2:
+  when:
+    readiness_score: "> 84"
+    AND:
+      readiness_score: "<= 100"
+  category: recuperación
+  candidates: ["REC_READINESS_UPPER_SEVERITY2_V1", "REC_READINESS_UPPER_SEVERITY2_V2", "REC_READINESS_UPPER_SEVERITY2_V3", "REC_READINESS_UPPER_SEVERITY2_V4", "REC_READINESS_UPPER_SEVERITY2_V5", "REC_READINESS_UPPER_SEVERITY2_V6", "REC_READINESS_UPPER_SEVERITY2_V7", "REC_READINESS_UPPER_SEVERITY2_V8", "REC_READINESS_UPPER_SEVERITY2_V9", "REC_READINESS_UPPER_SEVERITY2_V10"]
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+R-REC-TRIMP-LOWER-SEVERITY1:
+  when:
+    trimp: "<100"
+    AND:
+      trimp: ">= 50"
+  category: recuperación
+  candidates: ["REC_TRIMP_LOWER_SEVERITY1_V1", "REC_TRIMP_LOWER_SEVERITY1_V2", "REC_TRIMP_LOWER_SEVERITY1_V3", "REC_TRIMP_LOWER_SEVERITY1_V4", "REC_TRIMP_LOWER_SEVERITY1_V5", "REC_TRIMP_LOWER_SEVERITY1_V6", "REC_TRIMP_LOWER_SEVERITY1_V7", "REC_TRIMP_LOWER_SEVERITY1_V8", "REC_TRIMP_LOWER_SEVERITY1_V9", "REC_TRIMP_LOWER_SEVERITY1_V10"]
+
+R-REC-TRIMP-LOWER-SEVERITY2:
+  when:
+    trimp: "<50"
+    AND:
+      trimp: ">= 20"
+  category: recuperación
+  candidates: ["REC_TRIMP_LOWER_SEVERITY2_V1", "REC_TRIMP_LOWER_SEVERITY2_V2", "REC_TRIMP_LOWER_SEVERITY2_V3", "REC_TRIMP_LOWER_SEVERITY2_V4", "REC_TRIMP_LOWER_SEVERITY2_V5", "REC_TRIMP_LOWER_SEVERITY2_V6", "REC_TRIMP_LOWER_SEVERITY2_V7", "REC_TRIMP_LOWER_SEVERITY2_V8", "REC_TRIMP_LOWER_SEVERITY2_V9", "REC_TRIMP_LOWER_SEVERITY2_V10"]
+
+R-REC-TRIMP-LOWER-SEVERITY3:
+  when:
+    trimp: "<20"
+    AND:
+      trimp: ">= 0"
+  category: recuperación
+  candidates: ["REC_TRIMP_LOWER_SEVERITY3_V1", "REC_TRIMP_LOWER_SEVERITY3_V2", "REC_TRIMP_LOWER_SEVERITY3_V3", "REC_TRIMP_LOWER_SEVERITY3_V4", "REC_TRIMP_LOWER_SEVERITY3_V5", "REC_TRIMP_LOWER_SEVERITY3_V6", "REC_TRIMP_LOWER_SEVERITY3_V7", "REC_TRIMP_LOWER_SEVERITY3_V8", "REC_TRIMP_LOWER_SEVERITY3_V9", "REC_TRIMP_LOWER_SEVERITY3_V10"]
+
+
+R-REC-TRIMP-UPPER-SEVERITY1:
+  when:
+    trimp: ">= 100"
+    AND:
+      trimp: "<=200"
+  category: recuperación
+  candidates: ["REC_TRIMP_UPPER_SEVERITY1_V1", "REC_TRIMP_UPPER_SEVERITY1_V2", "REC_TRIMP_UPPER_SEVERITY1_V3", "REC_TRIMP_UPPER_SEVERITY1_V4", "REC_TRIMP_UPPER_SEVERITY1_V5", "REC_TRIMP_UPPER_SEVERITY1_V6", "REC_TRIMP_UPPER_SEVERITY1_V7", "REC_TRIMP_UPPER_SEVERITY1_V8", "REC_TRIMP_UPPER_SEVERITY1_V9", "REC_TRIMP_UPPER_SEVERITY1_V10"]
+
+R-REC-TRIMP-UPPER-SEVERITY2:
+  when:
+    trimp: ">200"
+    AND:
+      trimp: "<=300"
+  category: recuperación
+  candidates: ["REC_TRIMP_UPPER_SEVERITY2_V1", "REC_TRIMP_UPPER_SEVERITY2_V2", "REC_TRIMP_UPPER_SEVERITY2_V3", "REC_TRIMP_UPPER_SEVERITY2_V4", "REC_TRIMP_UPPER_SEVERITY2_V5", "REC_TRIMP_UPPER_SEVERITY2_V6", "REC_TRIMP_UPPER_SEVERITY2_V7", "REC_TRIMP_UPPER_SEVERITY2_V8", "REC_TRIMP_UPPER_SEVERITY2_V9", "REC_TRIMP_UPPER_SEVERITY2_V10"]
+
+R-REC-TRIMP-UPPER-SEVERITY3:
+  when:
+    trimp: ">300"
+  category: recuperación
+  candidates: ["REC_TRIMP_UPPER_SEVERITY3_V1", "REC_TRIMP_UPPER_SEVERITY3_V2", "REC_TRIMP_UPPER_SEVERITY3_V3", "REC_TRIMP_UPPER_SEVERITY3_V4", "REC_TRIMP_UPPER_SEVERITY3_V5", "REC_TRIMP_UPPER_SEVERITY3_V6", "REC_TRIMP_UPPER_SEVERITY3_V7", "REC_TRIMP_UPPER_SEVERITY3_V8", "REC_TRIMP_UPPER_SEVERITY3_V9", "REC_TRIMP_UPPER_SEVERITY3_V10"]
+
+
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+
+
+#RECOMENDACIONES BASADAS EN COMPARACION DE PROMEDIOS DE DISTINTOS DIAS (POR EJEMPLO: PROMEDIO DE 3 DIAS VS PROMEDIA DE 14 DIAS)
+
+
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+##################################################################################################################################################################
+
+
+#se compara la media de short days vs la de long days. Se pueden incar cuantos dias se quiera.
+windows:
+  short_days: 3
+  long_days: 14
+  thresholds:
+    lower:
+      s1_lt: &LOWER_S1_LT "< -10"
+      s1_ge: &LOWER_S1_GE ">= -20"
+      s2_lt: &LOWER_S2_LT "< -20"
+      s2_ge: &LOWER_S2_GE ">= -30"
+      s3_lt: &LOWER_S3_LT "< -30"
+      s3_ge: &LOWER_S3_GE ">= -40"
+      s4_lt: &LOWER_S4_LT "< -40"
+      s4_ge: &LOWER_S4_GE ">= -50"
+      s5_lt: &LOWER_S5_LT "< -50"
+    upper:
+      s1_gt: &UPPER_S1_GT "> 10"
+      s1_le: &UPPER_S1_LE "<= 20"
+      s2_gt: &UPPER_S2_GT "> 20"
+      s2_le: &UPPER_S2_LE "<= 30"
+      s3_gt: &UPPER_S3_GT "> 30"
+      s3_le: &UPPER_S3_LE "<= 40"
+      s4_gt: &UPPER_S4_GT "> 40"
+      s4_le: &UPPER_S4_LE "<= 50"
+      s5_gt: &UPPER_S5_GT "> 50"
+
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+R-SLP-SCORE-COMPARATIVE-LOWER-SEVERITY1:
+  when:
+    sleep_score_{short}d_vs_{long}d: *LOWER_S1_LT
+    AND:
+      sleep_score_{short}d_vs_{long}d: *LOWER_S1_GE
+  category: sueño
+  candidates: ["SLP_SCORE_COMPARATIVE_LOWER_SEVERITY1_V1", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY1_V2", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY1_V3", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY1_V4", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY1_V5", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY1_V6", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY1_V7", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY1_V8", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY1_V9", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY1_V10"]
+
+R-SLP-SCORE-COMPARATIVE-LOWER-SEVERITY2:
+  when:
+    sleep_score_{short}d_vs_{long}d: *LOWER_S2_LT
+    AND:
+      sleep_score_{short}d_vs_{long}d: *LOWER_S2_GE
+  category: sueño
+  candidates: ["SLP_SCORE_COMPARATIVE_LOWER_SEVERITY2_V1", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY2_V2", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY2_V3", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY2_V4", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY2_V5", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY2_V6", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY2_V7", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY2_V8", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY2_V9", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY2_V10"]
+
+R-SLP-SCORE-COMPARATIVE-LOWER-SEVERITY3:
+  when:
+    sleep_score_{short}d_vs_{long}d: *LOWER_S3_LT
+    AND:
+      sleep_score_{short}d_vs_{long}d: *LOWER_S3_GE
+  category: sueño
+  candidates: ["SLP_SCORE_COMPARATIVE_LOWER_SEVERITY3_V1", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY3_V2", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY3_V3", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY3_V4", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY3_V5", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY3_V6", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY3_V7", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY3_V8", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY3_V9", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY3_V10"]
+
+R-SLP-SCORE-COMPARATIVE-LOWER-SEVERITY4:
+  when:
+    sleep_score_{short}d_vs_{long}d: *LOWER_S4_LT
+    AND:
+      sleep_score_{short}d_vs_{long}d: *LOWER_S4_GE
+  category: sueño
+  candidates: ["SLP_SCORE_COMPARATIVE_LOWER_SEVERITY4_V1", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY4_V2", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY4_V3", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY4_V4", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY4_V5", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY4_V6", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY4_V7", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY4_V8", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY4_V9", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY4_V10"]
+
+R-SLP-SCORE-COMPARATIVE-LOWER-SEVERITY5:
+  when:
+    sleep_score_{short}d_vs_{long}d: *LOWER_S5_LT
+  category: sueño
+  candidates: ["SLP_SCORE_COMPARATIVE_LOWER_SEVERITY5_V1", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY5_V2", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY5_V3", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY5_V4", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY5_V5", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY5_V6", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY5_V7", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY5_V8", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY5_V9", "SLP_SCORE_COMPARATIVE_LOWER_SEVERITY5_V10"]
+
+R-SLP-SCORE-COMPARATIVE-UPPER-SEVERITY1:
+  when:
+    sleep_score_{short}d_vs_{long}d: *UPPER_S1_GT
+    AND:
+      sleep_score_{short}d_vs_{long}d: *UPPER_S1_LE
+  category: sueño
+  candidates: ["SLP_SCORE_COMPARATIVE_UPPER_SEVERITY1_V1", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY1_V2", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY1_V3", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY1_V4", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY1_V5", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY1_V6", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY1_V7", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY1_V8", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY1_V9", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY1_V10"]
+
+R-SLP-SCORE-COMPARATIVE-UPPER-SEVERITY2:
+  when:
+    sleep_score_{short}d_vs_{long}d: *UPPER_S2_GT
+    AND:
+      sleep_score_{short}d_vs_{long}d: *UPPER_S2_LE
+  category: sueño
+  candidates: ["SLP_SCORE_COMPARATIVE_UPPER_SEVERITY2_V1", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY2_V2", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY2_V3", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY2_V4", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY2_V5", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY2_V6", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY2_V7", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY2_V8", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY2_V9", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY2_V10"]
+
+R-SLP-SCORE-COMPARATIVE-UPPER-SEVERITY3:
+  when:
+    sleep_score_{short}d_vs_{long}d: *UPPER_S3_GT
+    AND:
+      sleep_score_{short}d_vs_{long}d: *UPPER_S3_LE
+  category: sueño
+  candidates: ["SLP_SCORE_COMPARATIVE_UPPER_SEVERITY3_V1", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY3_V2", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY3_V3", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY3_V4", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY3_V5", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY3_V6", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY3_V7", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY3_V8", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY3_V9", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY3_V10"]
+
+R-SLP-SCORE-COMPARATIVE-UPPER-SEVERITY4:
+  when:
+    sleep_score_{short}d_vs_{long}d: *UPPER_S4_GT
+    AND:
+      sleep_score_{short}d_vs_{long}d: *UPPER_S4_LE
+  category: sueño
+  candidates: ["SLP_SCORE_COMPARATIVE_UPPER_SEVERITY4_V1", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY4_V2", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY4_V3", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY4_V4", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY4_V5", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY4_V6", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY4_V7", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY4_V8", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY4_V9", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY4_V10"]
+
+R-SLP-SCORE-COMPARATIVE-UPPER-SEVERITY5:
+  when:
+    sleep_score_{short}d_vs_{long}d: *UPPER_S5_GT
+  category: sueño
+  candidates: ["SLP_SCORE_COMPARATIVE_UPPER_SEVERITY5_V1", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY5_V2", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY5_V3", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY5_V4", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY5_V5", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY5_V6", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY5_V7", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY5_V8", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY5_V9", "SLP_SCORE_COMPARATIVE_UPPER_SEVERITY5_V10"]
+
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+
+R-SLP-EFF-COMPARATIVE-LOWER-SEVERITY1:
+  when:
+    sleep_efficiency_{short}d_vs_{long}d: *LOWER_S1_LT
+    AND:
+      sleep_efficiency_{short}d_vs_{long}d: *LOWER_S1_GE
+  category: sueño
+  candidates: ["SLP_EFF_COMPARATIVE_LOWER_SEVERITY1_V1", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY1_V2", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY1_V3", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY1_V4", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY1_V5", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY1_V6", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY1_V7", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY1_V8", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY1_V9", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY1_V10"]
+
+R-SLP-EFF-COMPARATIVE-LOWER-SEVERITY2:
+  when:
+    sleep_efficiency_{short}d_vs_{long}d: *LOWER_S2_LT
+    AND:
+      sleep_efficiency_{short}d_vs_{long}d: *LOWER_S2_GE
+  category: sueño
+  candidates: ["SLP_EFF_COMPARATIVE_LOWER_SEVERITY2_V1", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY2_V2", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY2_V3", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY2_V4", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY2_V5", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY2_V6", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY2_V7", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY2_V8", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY2_V9", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY2_V10"]
+
+R-SLP-EFF-COMPARATIVE-LOWER-SEVERITY3:
+  when:
+    sleep_efficiency_{short}d_vs_{long}d: *LOWER_S3_LT
+    AND:
+      sleep_efficiency_{short}d_vs_{long}d: *LOWER_S3_GE
+  category: sueño
+  candidates: ["SLP_EFF_COMPARATIVE_LOWER_SEVERITY3_V1", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY3_V2", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY3_V3", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY3_V4", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY3_V5", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY3_V6", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY3_V7", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY3_V8", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY3_V9", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY3_V10"]
+
+R-SLP-EFF-COMPARATIVE-LOWER-SEVERITY4:
+  when:
+    sleep_efficiency_{short}d_vs_{long}d: *LOWER_S4_LT
+    AND:
+      sleep_efficiency_{short}d_vs_{long}d: *LOWER_S4_GE
+  category: sueño
+  candidates: ["SLP_EFF_COMPARATIVE_LOWER_SEVERITY4_V1", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY4_V2", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY4_V3", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY4_V4", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY4_V5", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY4_V6", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY4_V7", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY4_V8", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY4_V9", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY4_V10"]
+
+R-SLP-EFF-COMPARATIVE-LOWER-SEVERITY5:
+  when:
+    sleep_efficiency_{short}d_vs_{long}d: *LOWER_S5_LT
+  category: sueño
+  candidates: ["SLP_EFF_COMPARATIVE_LOWER_SEVERITY5_V1", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY5_V2", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY5_V3", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY5_V4", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY5_V5", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY5_V6", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY5_V7", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY5_V8", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY5_V9", "SLP_EFF_COMPARATIVE_LOWER_SEVERITY5_V10"]
+
+R-SLP-EFF-COMPARATIVE-UPPER-SEVERITY1:
+  when:
+    sleep_efficiency_{short}d_vs_{long}d: *UPPER_S1_GT
+    AND:
+      sleep_efficiency_{short}d_vs_{long}d: *UPPER_S1_LE
+  category: sueño
+  candidates: ["SLP_EFF_COMPARATIVE_UPPER_SEVERITY1_V1", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY1_V2", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY1_V3", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY1_V4", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY1_V5", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY1_V6", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY1_V7", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY1_V8", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY1_V9", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY1_V10"]
+
+R-SLP-EFF-COMPARATIVE-UPPER-SEVERITY2:
+  when:
+    sleep_efficiency_{short}d_vs_{long}d: *UPPER_S2_GT
+    AND:
+      sleep_efficiency_{short}d_vs_{long}d: *UPPER_S2_LE
+  category: sueño
+  candidates: ["SLP_EFF_COMPARATIVE_UPPER_SEVERITY2_V1", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY2_V2", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY2_V3", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY2_V4", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY2_V5", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY2_V6", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY2_V7", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY2_V8", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY2_V9", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY2_V10"]
+
+R-SLP-EFF-COMPARATIVE-UPPER-SEVERITY3:
+  when:
+    sleep_efficiency_{short}d_vs_{long}d: *UPPER_S3_GT
+    AND:
+      sleep_efficiency_{short}d_vs_{long}d: *UPPER_S3_LE
+  category: sueño
+  candidates: ["SLP_EFF_COMPARATIVE_UPPER_SEVERITY3_V1", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY3_V2", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY3_V3", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY3_V4", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY3_V5", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY3_V6", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY3_V7", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY3_V8", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY3_V9", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY3_V10"]
+
+R-SLP-EFF-COMPARATIVE-UPPER-SEVERITY4:
+  when:
+    sleep_efficiency_{short}d_vs_{long}d: *UPPER_S4_GT
+    AND:
+      sleep_efficiency_{short}d_vs_{long}d: *UPPER_S4_LE
+  category: sueño
+  candidates: ["SLP_EFF_COMPARATIVE_UPPER_SEVERITY4_V1", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY4_V2", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY4_V3", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY4_V4", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY4_V5", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY4_V6", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY4_V7", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY4_V8", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY4_V9", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY4_V10"]
+
+R-SLP-EFF-COMPARATIVE-UPPER-SEVERITY5:
+  when:
+    sleep_efficiency_{short}d_vs_{long}d: *UPPER_S5_GT
+  category: sueño
+  candidates: ["SLP_EFF_COMPARATIVE_UPPER_SEVERITY5_V1", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY5_V2", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY5_V3", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY5_V4", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY5_V5", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY5_V6", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY5_V7", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY5_V8", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY5_V9", "SLP_EFF_COMPARATIVE_UPPER_SEVERITY5_V10"]
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+
+R-ACT-DAILY-COMPARATIVE-LOWER-SEVERITY1:
+  when:
+    daily_activity_score_{short}d_vs_{long}d: *LOWER_S1_LT
+    AND:
+      daily_activity_score_{short}d_vs_{long}d: *LOWER_S1_GE
+  category: actividad
+  candidates: ["ACT_DAILY_COMPARATIVE_LOWER_SEVERITY1_V1", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY1_V2", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY1_V3", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY1_V4", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY1_V5", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY1_V6", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY1_V7", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY1_V8", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY1_V9", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY1_V10"]
+
+R-ACT-DAILY-COMPARATIVE-LOWER-SEVERITY2:
+  when:
+    daily_activity_score_{short}d_vs_{long}d: *LOWER_S2_LT
+    AND:
+      daily_activity_score_{short}d_vs_{long}d: *LOWER_S2_GE
+  category: actividad
+  candidates: ["ACT_DAILY_COMPARATIVE_LOWER_SEVERITY2_V1", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY2_V2", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY2_V3", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY2_V4", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY2_V5", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY2_V6", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY2_V7", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY2_V8", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY2_V9", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY2_V10"]
+
+R-ACT-DAILY-COMPARATIVE-LOWER-SEVERITY3:
+  when:
+    daily_activity_score_{short}d_vs_{long}d: *LOWER_S3_LT
+    AND:
+      daily_activity_score_{short}d_vs_{long}d: *LOWER_S3_GE
+  category: actividad
+  candidates: ["ACT_DAILY_COMPARATIVE_LOWER_SEVERITY3_V1", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY3_V2", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY3_V3", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY3_V4", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY3_V5", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY3_V6", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY3_V7", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY3_V8", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY3_V9", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY3_V10"]
+
+R-ACT-DAILY-COMPARATIVE-LOWER-SEVERITY4:
+  when:
+    daily_activity_score_{short}d_vs_{long}d: *LOWER_S4_LT
+    AND:
+      daily_activity_score_{short}d_vs_{long}d: *LOWER_S4_GE
+  category: actividad
+  candidates: ["ACT_DAILY_COMPARATIVE_LOWER_SEVERITY4_V1", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY4_V2", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY4_V3", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY4_V4", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY4_V5", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY4_V6", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY4_V7", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY4_V8", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY4_V9", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY4_V10"]
+
+R-ACT-DAILY-COMPARATIVE-LOWER-SEVERITY5:
+  when:
+    daily_activity_score_{short}d_vs_{long}d: *LOWER_S5_LT
+  category: actividad
+  candidates: ["ACT_DAILY_COMPARATIVE_LOWER_SEVERITY5_V1", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY5_V2", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY5_V3", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY5_V4", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY5_V5", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY5_V6", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY5_V7", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY5_V8", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY5_V9", "ACT_DAILY_COMPARATIVE_LOWER_SEVERITY5_V10"]
+
+
+R-ACT-DAILY-COMPARATIVE-UPPER-SEVERITY1:
+  when:
+    daily_activity_score_{short}d_vs_{long}d: *UPPER_S1_GT
+    AND:
+      daily_activity_score_{short}d_vs_{long}d: *UPPER_S1_LE
+  category: actividad
+  candidates: ["ACT_DAILY_COMPARATIVE_UPPER_SEVERITY1_V1", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY1_V2", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY1_V3", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY1_V4", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY1_V5", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY1_V6", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY1_V7", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY1_V8", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY1_V9", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY1_V10"]
+
+R-ACT-DAILY-COMPARATIVE-UPPER-SEVERITY2:
+  when:
+    daily_activity_score_{short}d_vs_{long}d: *UPPER_S2_GT
+    AND:
+      daily_activity_score_{short}d_vs_{long}d: *UPPER_S2_LE
+  category: actividad
+  candidates: ["ACT_DAILY_COMPARATIVE_UPPER_SEVERITY2_V1", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY2_V2", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY2_V3", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY2_V4", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY2_V5", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY2_V6", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY2_V7", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY2_V8", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY2_V9", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY2_V10"]
+
+R-ACT-DAILY-COMPARATIVE-UPPER-SEVERITY3:
+  when:
+    daily_activity_score_{short}d_vs_{long}d: *UPPER_S3_GT
+    AND:
+      daily_activity_score_{short}d_vs_{long}d: *UPPER_S3_LE
+  category: actividad
+  candidates: ["ACT_DAILY_COMPARATIVE_UPPER_SEVERITY3_V1", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY3_V2", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY3_V3", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY3_V4", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY3_V5", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY3_V6", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY3_V7", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY3_V8", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY3_V9", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY3_V10"]
+
+R-ACT-DAILY-COMPARATIVE-UPPER-SEVERITY4:
+  when:
+    daily_activity_score_{short}d_vs_{long}d: *UPPER_S4_GT
+    AND:
+      daily_activity_score_{short}d_vs_{long}d: *UPPER_S4_LE
+  category: actividad
+  candidates: ["ACT_DAILY_COMPARATIVE_UPPER_SEVERITY4_V1", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY4_V2", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY4_V3", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY4_V4", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY4_V5", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY4_V6", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY4_V7", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY4_V8", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY4_V9", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY4_V10"]
+
+R-ACT-DAILY-COMPARATIVE-UPPER-SEVERITY5:
+  when:
+    daily_activity_score_{short}d_vs_{long}d: *UPPER_S5_GT
+  category: actividad
+  candidates: ["ACT_DAILY_COMPARATIVE_UPPER_SEVERITY5_V1", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY5_V2", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY5_V3", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY5_V4", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY5_V5", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY5_V6", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY5_V7", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY5_V8", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY5_V9", "ACT_DAILY_COMPARATIVE_UPPER_SEVERITY5_V10"]
+
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+R-ACT-ACWR-COMPARATIVE-LOWER-SEVERITY1:
+  when:
+    acwr_{short}d_vs_{long}d: *LOWER_S1_LT
+    AND:
+      acwr_{short}d_vs_{long}d: *LOWER_S1_GE
+  category: actividad
+  candidates: ["ACT_ACWR_COMPARATIVE_LOWER_SEVERITY1_V1", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY1_V2", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY1_V3", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY1_V4", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY1_V5", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY1_V6", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY1_V7", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY1_V8", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY1_V9", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY1_V10"]
+
+R-ACT-ACWR-COMPARATIVE-LOWER-SEVERITY2:
+  when:
+    acwr_{short}d_vs_{long}d: *LOWER_S2_LT
+    AND:
+      acwr_{short}d_vs_{long}d: *LOWER_S2_GE
+  category: actividad
+  candidates: ["ACT_ACWR_COMPARATIVE_LOWER_SEVERITY2_V1", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY2_V2", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY2_V3", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY2_V4", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY2_V5", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY2_V6", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY2_V7", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY2_V8", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY2_V9", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY2_V10"]
+
+R-ACT-ACWR-COMPARATIVE-LOWER-SEVERITY3:
+  when:
+    acwr_{short}d_vs_{long}d: *LOWER_S3_LT
+    AND:
+      acwr_{short}d_vs_{long}d: *LOWER_S3_GE
+  category: actividad
+  candidates: ["ACT_ACWR_COMPARATIVE_LOWER_SEVERITY3_V1", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY3_V2", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY3_V3", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY3_V4", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY3_V5", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY3_V6", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY3_V7", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY3_V8", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY3_V9", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY3_V10"]
+
+R-ACT-ACWR-COMPARATIVE-LOWER-SEVERITY4:
+  when:
+    acwr_{short}d_vs_{long}d: *LOWER_S4_LT
+    AND:
+      acwr_{short}d_vs_{long}d: *LOWER_S4_GE
+  category: actividad
+  candidates: ["ACT_ACWR_COMPARATIVE_LOWER_SEVERITY4_V1", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY4_V2", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY4_V3", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY4_V4", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY4_V5", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY4_V6", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY4_V7", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY4_V8", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY4_V9", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY4_V10"]
+
+R-ACT-ACWR-COMPARATIVE-LOWER-SEVERITY5:
+  when:
+    acwr_{short}d_vs_{long}d: *LOWER_S5_LT
+  category: actividad
+  candidates: ["ACT_ACWR_COMPARATIVE_LOWER_SEVERITY5_V1", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY5_V2", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY5_V3", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY5_V4", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY5_V5", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY5_V6", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY5_V7", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY5_V8", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY5_V9", "ACT_ACWR_COMPARATIVE_LOWER_SEVERITY5_V10"]
+
+R-ACT-ACWR-COMPARATIVE-UPPER-SEVERITY1:
+  when:
+    acwr_{short}d_vs_{long}d: *UPPER_S1_GT
+    AND:
+      acwr_{short}d_vs_{long}d: *UPPER_S1_LE
+  category: actividad
+  candidates: ["ACT_ACWR_COMPARATIVE_UPPER_SEVERITY1_V1", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY1_V2", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY1_V3", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY1_V4", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY1_V5", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY1_V6", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY1_V7", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY1_V8", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY1_V9", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY1_V10"]
+
+R-ACT-ACWR-COMPARATIVE-UPPER-SEVERITY2:
+  when:
+    acwr_{short}d_vs_{long}d: *UPPER_S2_GT
+    AND:
+      acwr_{short}d_vs_{long}d: *UPPER_S2_LE
+  category: actividad
+  candidates: ["ACT_ACWR_COMPARATIVE_UPPER_SEVERITY2_V1", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY2_V2", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY2_V3", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY2_V4", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY2_V5", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY2_V6", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY2_V7", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY2_V8", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY2_V9", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY2_V10"]
+
+R-ACT-ACWR-COMPARATIVE-UPPER-SEVERITY3:
+  when:
+    acwr_{short}d_vs_{long}d: *UPPER_S3_GT
+    AND:
+      acwr_{short}d_vs_{long}d: *UPPER_S3_LE
+  category: actividad
+  candidates: ["ACT_ACWR_COMPARATIVE_UPPER_SEVERITY3_V1", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY3_V2", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY3_V3", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY3_V4", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY3_V5", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY3_V6", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY3_V7", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY3_V8", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY3_V9", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY3_V10"]
+
+R-ACT-ACWR-COMPARATIVE-UPPER-SEVERITY4:
+  when:
+    acwr_{short}d_vs_{long}d: *UPPER_S4_GT
+    AND:
+      acwr_{short}d_vs_{long}d: *UPPER_S4_LE
+  category: actividad
+  candidates: ["ACT_ACWR_COMPARATIVE_UPPER_SEVERITY4_V1", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY4_V2", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY4_V3", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY4_V4", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY4_V5", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY4_V6", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY4_V7", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY4_V8", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY4_V9", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY4_V10"]
+
+R-ACT-ACWR-COMPARATIVE-UPPER-SEVERITY5:
+  when:
+    acwr_{short}d_vs_{long}d: *UPPER_S5_GT
+  category: actividad
+  candidates: ["ACT_ACWR_COMPARATIVE_UPPER_SEVERITY5_V1", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY5_V2", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY5_V3", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY5_V4", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY5_V5", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY5_V6", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY5_V7", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY5_V8", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY5_V9", "ACT_ACWR_COMPARATIVE_UPPER_SEVERITY5_V10"]
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+R-REC-VO2-COMPARATIVE-LOWER-SEVERITY1:
+  when:
+    estimated_vo2max_{short}d_vs_{long}d: *LOWER_S1_LT
+    AND:
+      estimated_vo2max_{short}d_vs_{long}d: *LOWER_S1_GE
+  category: recuperación
+  candidates: ["REC_VO2_COMPARATIVE_LOWER_SEVERITY1_V1", "REC_VO2_COMPARATIVE_LOWER_SEVERITY1_V2", "REC_VO2_COMPARATIVE_LOWER_SEVERITY1_V3", "REC_VO2_COMPARATIVE_LOWER_SEVERITY1_V4", "REC_VO2_COMPARATIVE_LOWER_SEVERITY1_V5", "REC_VO2_COMPARATIVE_LOWER_SEVERITY1_V6", "REC_VO2_COMPARATIVE_LOWER_SEVERITY1_V7", "REC_VO2_COMPARATIVE_LOWER_SEVERITY1_V8", "REC_VO2_COMPARATIVE_LOWER_SEVERITY1_V9", "REC_VO2_COMPARATIVE_LOWER_SEVERITY1_V10"]
+
+R-REC-VO2-COMPARATIVE-LOWER-SEVERITY2:
+  when:
+    estimated_vo2max_{short}d_vs_{long}d: *LOWER_S2_LT
+    AND:
+      estimated_vo2max_{short}d_vs_{long}d: *LOWER_S2_GE
+  category: recuperación
+  candidates: ["REC_VO2_COMPARATIVE_LOWER_SEVERITY2_V1", "REC_VO2_COMPARATIVE_LOWER_SEVERITY2_V2", "REC_VO2_COMPARATIVE_LOWER_SEVERITY2_V3", "REC_VO2_COMPARATIVE_LOWER_SEVERITY2_V4", "REC_VO2_COMPARATIVE_LOWER_SEVERITY2_V5", "REC_VO2_COMPARATIVE_LOWER_SEVERITY2_V6", "REC_VO2_COMPARATIVE_LOWER_SEVERITY2_V7", "REC_VO2_COMPARATIVE_LOWER_SEVERITY2_V8", "REC_VO2_COMPARATIVE_LOWER_SEVERITY2_V9", "REC_VO2_COMPARATIVE_LOWER_SEVERITY2_V10"]
+
+R-REC-VO2-COMPARATIVE-LOWER-SEVERITY3:
+  when:
+    estimated_vo2max_{short}d_vs_{long}d: *LOWER_S3_LT
+    AND:
+      estimated_vo2max_{short}d_vs_{long}d: *LOWER_S3_GE
+  category: recuperación
+  candidates: ["REC_VO2_COMPARATIVE_LOWER_SEVERITY3_V1", "REC_VO2_COMPARATIVE_LOWER_SEVERITY3_V2", "REC_VO2_COMPARATIVE_LOWER_SEVERITY3_V3", "REC_VO2_COMPARATIVE_LOWER_SEVERITY3_V4", "REC_VO2_COMPARATIVE_LOWER_SEVERITY3_V5", "REC_VO2_COMPARATIVE_LOWER_SEVERITY3_V6", "REC_VO2_COMPARATIVE_LOWER_SEVERITY3_V7", "REC_VO2_COMPARATIVE_LOWER_SEVERITY3_V8", "REC_VO2_COMPARATIVE_LOWER_SEVERITY3_V9", "REC_VO2_COMPARATIVE_LOWER_SEVERITY3_V10"]
+
+R-REC-VO2-COMPARATIVE-LOWER-SEVERITY4:
+  when:
+    estimated_vo2max_{short}d_vs_{long}d: *LOWER_S4_LT
+    AND:
+      estimated_vo2max_{short}d_vs_{long}d: *LOWER_S4_GE
+  category: recuperación
+  candidates: ["REC_VO2_COMPARATIVE_LOWER_SEVERITY4_V1", "REC_VO2_COMPARATIVE_LOWER_SEVERITY4_V2", "REC_VO2_COMPARATIVE_LOWER_SEVERITY4_V3", "REC_VO2_COMPARATIVE_LOWER_SEVERITY4_V4", "REC_VO2_COMPARATIVE_LOWER_SEVERITY4_V5", "REC_VO2_COMPARATIVE_LOWER_SEVERITY4_V6", "REC_VO2_COMPARATIVE_LOWER_SEVERITY4_V7", "REC_VO2_COMPARATIVE_LOWER_SEVERITY4_V8", "REC_VO2_COMPARATIVE_LOWER_SEVERITY4_V9", "REC_VO2_COMPARATIVE_LOWER_SEVERITY4_V10"]
+
+R-REC-VO2-COMPARATIVE-LOWER-SEVERITY5:
+  when:
+    estimated_vo2max_{short}d_vs_{long}d: *LOWER_S5_LT
+  category: recuperación
+  candidates: ["REC_VO2_COMPARATIVE_LOWER_SEVERITY5_V1", "REC_VO2_COMPARATIVE_LOWER_SEVERITY5_V2", "REC_VO2_COMPARATIVE_LOWER_SEVERITY5_V3", "REC_VO2_COMPARATIVE_LOWER_SEVERITY5_V4", "REC_VO2_COMPARATIVE_LOWER_SEVERITY5_V5", "REC_VO2_COMPARATIVE_LOWER_SEVERITY5_V6", "REC_VO2_COMPARATIVE_LOWER_SEVERITY5_V7", "REC_VO2_COMPARATIVE_LOWER_SEVERITY5_V8", "REC_VO2_COMPARATIVE_LOWER_SEVERITY5_V9", "REC_VO2_COMPARATIVE_LOWER_SEVERITY5_V10"]
+
+R-REC-VO2-COMPARATIVE-UPPER-SEVERITY1:
+  when:
+    estimated_vo2max_{short}d_vs_{long}d: *UPPER_S1_GT
+    AND:
+      estimated_vo2max_{short}d_vs_{long}d: *UPPER_S1_LE
+  category: recuperación
+  candidates: ["REC_VO2_COMPARATIVE_UPPER_SEVERITY1_V1", "REC_VO2_COMPARATIVE_UPPER_SEVERITY1_V2", "REC_VO2_COMPARATIVE_UPPER_SEVERITY1_V3", "REC_VO2_COMPARATIVE_UPPER_SEVERITY1_V4", "REC_VO2_COMPARATIVE_UPPER_SEVERITY1_V5", "REC_VO2_COMPARATIVE_UPPER_SEVERITY1_V6", "REC_VO2_COMPARATIVE_UPPER_SEVERITY1_V7", "REC_VO2_COMPARATIVE_UPPER_SEVERITY1_V8", "REC_VO2_COMPARATIVE_UPPER_SEVERITY1_V9", "REC_VO2_COMPARATIVE_UPPER_SEVERITY1_V10"]
+
+R-REC-VO2-COMPARATIVE-UPPER-SEVERITY2:
+  when:
+    estimated_vo2max_{short}d_vs_{long}d: *UPPER_S2_GT
+    AND:
+      estimated_vo2max_{short}d_vs_{long}d: *UPPER_S2_LE
+  category: recuperación
+  candidates: ["REC_VO2_COMPARATIVE_UPPER_SEVERITY2_V1", "REC_VO2_COMPARATIVE_UPPER_SEVERITY2_V2", "REC_VO2_COMPARATIVE_UPPER_SEVERITY2_V3", "REC_VO2_COMPARATIVE_UPPER_SEVERITY2_V4", "REC_VO2_COMPARATIVE_UPPER_SEVERITY2_V5", "REC_VO2_COMPARATIVE_UPPER_SEVERITY2_V6", "REC_VO2_COMPARATIVE_UPPER_SEVERITY2_V7", "REC_VO2_COMPARATIVE_UPPER_SEVERITY2_V8", "REC_VO2_COMPARATIVE_UPPER_SEVERITY2_V9", "REC_VO2_COMPARATIVE_UPPER_SEVERITY2_V10"]
+
+R-REC-VO2-COMPARATIVE-UPPER-SEVERITY3:
+  when:
+    estimated_vo2max_{short}d_vs_{long}d: *UPPER_S3_GT
+    AND:
+      estimated_vo2max_{short}d_vs_{long}d: *UPPER_S3_LE
+  category: recuperación
+  candidates: ["REC_VO2_COMPARATIVE_UPPER_SEVERITY3_V1", "REC_VO2_COMPARATIVE_UPPER_SEVERITY3_V2", "REC_VO2_COMPARATIVE_UPPER_SEVERITY3_V3", "REC_VO2_COMPARATIVE_UPPER_SEVERITY3_V4", "REC_VO2_COMPARATIVE_UPPER_SEVERITY3_V5", "REC_VO2_COMPARATIVE_UPPER_SEVERITY3_V6", "REC_VO2_COMPARATIVE_UPPER_SEVERITY3_V7", "REC_VO2_COMPARATIVE_UPPER_SEVERITY3_V8", "REC_VO2_COMPARATIVE_UPPER_SEVERITY3_V9", "REC_VO2_COMPARATIVE_UPPER_SEVERITY3_V10"]
+
+R-REC-VO2-COMPARATIVE-UPPER-SEVERITY4:
+  when:
+    estimated_vo2max_{short}d_vs_{long}d: *UPPER_S4_GT
+    AND:
+      estimated_vo2max_{short}d_vs_{long}d: *UPPER_S4_LE
+  category: recuperación
+  candidates: ["REC_VO2_COMPARATIVE_UPPER_SEVERITY4_V1", "REC_VO2_COMPARATIVE_UPPER_SEVERITY4_V2", "REC_VO2_COMPARATIVE_UPPER_SEVERITY4_V3", "REC_VO2_COMPARATIVE_UPPER_SEVERITY4_V4", "REC_VO2_COMPARATIVE_UPPER_SEVERITY4_V5", "REC_VO2_COMPARATIVE_UPPER_SEVERITY4_V6", "REC_VO2_COMPARATIVE_UPPER_SEVERITY4_V7", "REC_VO2_COMPARATIVE_UPPER_SEVERITY4_V8", "REC_VO2_COMPARATIVE_UPPER_SEVERITY4_V9", "REC_VO2_COMPARATIVE_UPPER_SEVERITY4_V10"]
+
+R-REC-VO2-COMPARATIVE-UPPER-SEVERITY5:
+  when:
+    estimated_vo2max_{short}d_vs_{long}d: *UPPER_S5_GT
+  category: recuperación
+  candidates: ["REC_VO2_COMPARATIVE_UPPER_SEVERITY5_V1", "REC_VO2_COMPARATIVE_UPPER_SEVERITY5_V2", "REC_VO2_COMPARATIVE_UPPER_SEVERITY5_V3", "REC_VO2_COMPARATIVE_UPPER_SEVERITY5_V4", "REC_VO2_COMPARATIVE_UPPER_SEVERITY5_V5", "REC_VO2_COMPARATIVE_UPPER_SEVERITY5_V6", "REC_VO2_COMPARATIVE_UPPER_SEVERITY5_V7", "REC_VO2_COMPARATIVE_UPPER_SEVERITY5_V8", "REC_VO2_COMPARATIVE_UPPER_SEVERITY5_V9", "REC_VO2_COMPARATIVE_UPPER_SEVERITY5_V10"]
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+
+R-REC-HRV-RHR-COMPARATIVE-LOWER-SEVERITY1:
+  when:
+    hrv_rhr_ratio_{short}d_vs_{long}d: *LOWER_S1_LT
+    AND:
+      hrv_rhr_ratio_{short}d_vs_{long}d: *LOWER_S1_GE
+  category: recuperación
+  candidates: ["REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY1_V1", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY1_V2", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY1_V3", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY1_V4", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY1_V5", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY1_V6", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY1_V7", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY1_V8", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY1_V9", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY1_V10"]
+
+R-REC-HRV-RHR-COMPARATIVE-LOWER-SEVERITY2:
+  when:
+    hrv_rhr_ratio_{short}d_vs_{long}d: *LOWER_S2_LT
+    AND:
+      hrv_rhr_ratio_{short}d_vs_{long}d: *LOWER_S2_GE
+  category: recuperación
+  candidates: ["REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY2_V1", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY2_V2", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY2_V3", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY2_V4", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY2_V5", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY2_V6", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY2_V7", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY2_V8", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY2_V9", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY2_V10"]
+
+R-REC-HRV-RHR-COMPARATIVE-LOWER-SEVERITY3:
+  when:
+    hrv_rhr_ratio_{short}d_vs_{long}d: *LOWER_S3_LT
+    AND:
+      hrv_rhr_ratio_{short}d_vs_{long}d: *LOWER_S3_GE
+  category: recuperación
+  candidates: ["REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY3_V1", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY3_V2", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY3_V3", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY3_V4", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY3_V5", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY3_V6", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY3_V7", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY3_V8", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY3_V9", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY3_V10"]
+
+R-REC-HRV-RHR-COMPARATIVE-LOWER-SEVERITY4:
+  when:
+    hrv_rhr_ratio_{short}d_vs_{long}d: *LOWER_S4_LT
+    AND:
+      hrv_rhr_ratio_{short}d_vs_{long}d: *LOWER_S4_GE
+  category: recuperación
+  candidates: ["REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY4_V1", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY4_V2", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY4_V3", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY4_V4", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY4_V5", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY4_V6", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY4_V7", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY4_V8", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY4_V9", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY4_V10"]
+
+R-REC-HRV-RHR-COMPARATIVE-LOWER-SEVERITY5:
+  when:
+    hrv_rhr_ratio_{short}d_vs_{long}d: *LOWER_S5_LT
+  category: recuperación
+  candidates: ["REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY5_V1", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY5_V2", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY5_V3", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY5_V4", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY5_V5", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY5_V6", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY5_V7", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY5_V8", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY5_V9", "REC_HRV_RHR_COMPARATIVE_LOWER_SEVERITY5_V10"]
+
+R-REC-HRV-RHR-COMPARATIVE-UPPER-SEVERITY1:
+  when:
+    hrv_rhr_ratio_{short}d_vs_{long}d: *UPPER_S1_GT
+    AND:
+      hrv_rhr_ratio_{short}d_vs_{long}d: *UPPER_S1_LE
+  category: recuperación
+  candidates: ["REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY1_V1", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY1_V2", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY1_V3", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY1_V4", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY1_V5", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY1_V6", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY1_V7", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY1_V8", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY1_V9", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY1_V10"]
+
+R-REC-HRV-RHR-COMPARATIVE-UPPER-SEVERITY2:
+  when:
+    hrv_rhr_ratio_{short}d_vs_{long}d: *UPPER_S2_GT
+    AND:
+      hrv_rhr_ratio_{short}d_vs_{long}d: *UPPER_S2_LE
+  category: recuperación
+  candidates: ["REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY2_V1", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY2_V2", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY2_V3", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY2_V4", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY2_V5", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY2_V6", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY2_V7", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY2_V8", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY2_V9", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY2_V10"]
+
+R-REC-HRV-RHR-COMPARATIVE-UPPER-SEVERITY3:
+  when:
+    hrv_rhr_ratio_{short}d_vs_{long}d: *UPPER_S3_GT
+    AND:
+      hrv_rhr_ratio_{short}d_vs_{long}d: *UPPER_S3_LE
+  category: recuperación
+  candidates: ["REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY3_V1", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY3_V2", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY3_V3", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY3_V4", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY3_V5", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY3_V6", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY3_V7", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY3_V8", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY3_V9", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY3_V10"]
+
+R-REC-HRV-RHR-COMPARATIVE-UPPER-SEVERITY4:
+  when:
+    hrv_rhr_ratio_{short}d_vs_{long}d: *UPPER_S4_GT
+    AND:
+      hrv_rhr_ratio_{short}d_vs_{long}d: *UPPER_S4_LE
+  category: recuperación
+  candidates: ["REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY4_V1", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY4_V2", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY4_V3", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY4_V4", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY4_V5", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY4_V6", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY4_V7", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY4_V8", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY4_V9", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY4_V10"]
+
+R-REC-HRV-RHR-COMPARATIVE-UPPER-SEVERITY5:
+  when:
+    hrv_rhr_ratio_{short}d_vs_{long}d: *UPPER_S5_GT
+  category: recuperación
+  candidates: ["REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY5_V1", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY5_V2", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY5_V3", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY5_V4", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY5_V5", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY5_V6", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY5_V7", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY5_V8", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY5_V9", "REC_HRV_RHR_COMPARATIVE_UPPER_SEVERITY5_V10"]
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+R-REC-READINESS-COMPARATIVE-LOWER-SEVERITY1:
+  when:
+    readiness_score_{short}d_vs_{long}d: *LOWER_S1_LT
+    AND:
+      readiness_score_{short}d_vs_{long}d: *LOWER_S1_GE
+  category: recuperación
+  candidates: ["REC_READINESS_COMPARATIVE_LOWER_SEVERITY1_V1", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY1_V2", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY1_V3", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY1_V4", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY1_V5", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY1_V6", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY1_V7", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY1_V8", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY1_V9", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY1_V10"]
+
+R-REC-READINESS-COMPARATIVE-LOWER-SEVERITY2:
+  when:
+    readiness_score_{short}d_vs_{long}d: *LOWER_S2_LT
+    AND:
+      readiness_score_{short}d_vs_{long}d: *LOWER_S2_GE
+  category: recuperación
+  candidates: ["REC_READINESS_COMPARATIVE_LOWER_SEVERITY2_V1", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY2_V2", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY2_V3", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY2_V4", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY2_V5", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY2_V6", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY2_V7", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY2_V8", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY2_V9", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY2_V10"]
+
+R-REC-READINESS-COMPARATIVE-LOWER-SEVERITY3:
+  when:
+    readiness_score_{short}d_vs_{long}d: *LOWER_S3_LT
+    AND:
+      readiness_score_{short}d_vs_{long}d: *LOWER_S3_GE
+  category: recuperación
+  candidates: ["REC_READINESS_COMPARATIVE_LOWER_SEVERITY3_V1", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY3_V2", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY3_V3", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY3_V4", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY3_V5", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY3_V6", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY3_V7", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY3_V8", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY3_V9", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY3_V10"]
+
+R-REC-READINESS-COMPARATIVE-LOWER-SEVERITY4:
+  when:
+    readiness_score_{short}d_vs_{long}d: *LOWER_S4_LT
+    AND:
+      readiness_score_{short}d_vs_{long}d: *LOWER_S4_GE
+  category: recuperación
+  candidates: ["REC_READINESS_COMPARATIVE_LOWER_SEVERITY4_V1", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY4_V2", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY4_V3", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY4_V4", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY4_V5", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY4_V6", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY4_V7", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY4_V8", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY4_V9", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY4_V10"]
+
+R-REC-READINESS-COMPARATIVE-LOWER-SEVERITY5:
+  when:
+    readiness_score_{short}d_vs_{long}d: *LOWER_S5_LT
+  category: recuperación
+  candidates: ["REC_READINESS_COMPARATIVE_LOWER_SEVERITY5_V1", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY5_V2", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY5_V3", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY5_V4", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY5_V5", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY5_V6", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY5_V7", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY5_V8", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY5_V9", "REC_READINESS_COMPARATIVE_LOWER_SEVERITY5_V10"]
+
+R-REC-READINESS-COMPARATIVE-UPPER-SEVERITY1:
+  when:
+    readiness_score_{short}d_vs_{long}d: *UPPER_S1_GT
+    AND:
+      readiness_score_{short}d_vs_{long}d: *UPPER_S1_LE
+  category: recuperación
+  candidates: ["REC_READINESS_COMPARATIVE_UPPER_SEVERITY1_V1", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY1_V2", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY1_V3", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY1_V4", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY1_V5", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY1_V6", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY1_V7", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY1_V8", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY1_V9", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY1_V10"]
+
+R-REC-READINESS-COMPARATIVE-UPPER-SEVERITY2:
+  when:
+    readiness_score_{short}d_vs_{long}d: *UPPER_S2_GT
+    AND:
+      readiness_score_{short}d_vs_{long}d: *UPPER_S2_LE
+  category: recuperación
+  candidates: ["REC_READINESS_COMPARATIVE_UPPER_SEVERITY2_V1", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY2_V2", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY2_V3", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY2_V4", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY2_V5", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY2_V6", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY2_V7", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY2_V8", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY2_V9", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY2_V10"]
+
+R-REC-READINESS-COMPARATIVE-UPPER-SEVERITY3:
+  when:
+    readiness_score_{short}d_vs_{long}d: *UPPER_S3_GT
+    AND:
+      readiness_score_{short}d_vs_{long}d: *UPPER_S3_LE
+  category: recuperación
+  candidates: ["REC_READINESS_COMPARATIVE_UPPER_SEVERITY3_V1", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY3_V2", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY3_V3", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY3_V4", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY3_V5", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY3_V6", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY3_V7", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY3_V8", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY3_V9", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY3_V10"]
+
+R-REC-READINESS-COMPARATIVE-UPPER-SEVERITY4:
+  when:
+    readiness_score_{short}d_vs_{long}d: *UPPER_S4_GT
+    AND:
+      readiness_score_{short}d_vs_{long}d: *UPPER_S4_LE
+  category: recuperación
+  candidates: ["REC_READINESS_COMPARATIVE_UPPER_SEVERITY4_V1", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY4_V2", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY4_V3", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY4_V4", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY4_V5", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY4_V6", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY4_V7", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY4_V8", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY4_V9", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY4_V10"]
+
+R-REC-READINESS-COMPARATIVE-UPPER-SEVERITY5:
+  when:
+    readiness_score_{short}d_vs_{long}d: *UPPER_S5_GT
+  category: recuperación
+  candidates: ["REC_READINESS_COMPARATIVE_UPPER_SEVERITY5_V1", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY5_V2", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY5_V3", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY5_V4", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY5_V5", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY5_V6", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY5_V7", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY5_V8", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY5_V9", "REC_READINESS_COMPARATIVE_UPPER_SEVERITY5_V10"]
+
+
+###################################################################################
+###################################################################################
+###################################################################################
+
+R-REC-TRIMP-COMPARATIVE-LOWER-SEVERITY1:
+  when:
+    trimp_{short}d_vs_{long}d: *LOWER_S1_LT
+    AND:
+      trimp_{short}d_vs_{long}d: *LOWER_S1_GE
+  category: recuperación
+  candidates: ["REC_TRIMP_COMPARATIVE_LOWER_SEVERITY1_V1", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY1_V2", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY1_V3", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY1_V4", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY1_V5", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY1_V6", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY1_V7", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY1_V8", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY1_V9", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY1_V10"]
+
+R-REC-TRIMP-COMPARATIVE-LOWER-SEVERITY2:
+  when:
+    trimp_{short}d_vs_{long}d: *LOWER_S2_LT
+    AND:
+      trimp_{short}d_vs_{long}d: *LOWER_S2_GE
+  category: recuperación
+  candidates: ["REC_TRIMP_COMPARATIVE_LOWER_SEVERITY2_V1", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY2_V2", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY2_V3", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY2_V4", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY2_V5", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY2_V6", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY2_V7", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY2_V8", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY2_V9", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY2_V10"]
+
+R-REC-TRIMP-COMPARATIVE-LOWER-SEVERITY3:
+  when:
+    trimp_{short}d_vs_{long}d: *LOWER_S3_LT
+    AND:
+      trimp_{short}d_vs_{long}d: *LOWER_S3_GE
+  category: recuperación
+  candidates: ["REC_TRIMP_COMPARATIVE_LOWER_SEVERITY3_V1", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY3_V2", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY3_V3", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY3_V4", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY3_V5", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY3_V6", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY3_V7", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY3_V8", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY3_V9", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY3_V10"]
+
+R-REC-TRIMP-COMPARATIVE-LOWER-SEVERITY4:
+  when:
+    trimp_{short}d_vs_{long}d: *LOWER_S4_LT
+    AND:
+      trimp_{short}d_vs_{long}d: *LOWER_S4_GE
+  category: recuperación
+  candidates: ["REC_TRIMP_COMPARATIVE_LOWER_SEVERITY4_V1", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY4_V2", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY4_V3", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY4_V4", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY4_V5", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY4_V6", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY4_V7", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY4_V8", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY4_V9", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY4_V10"]
+
+R-REC-TRIMP-COMPARATIVE-LOWER-SEVERITY5:
+  when:
+    trimp_{short}d_vs_{long}d: *LOWER_S5_LT
+  category: recuperación
+  candidates: ["REC_TRIMP_COMPARATIVE_LOWER_SEVERITY5_V1", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY5_V2", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY5_V3", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY5_V4", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY5_V5", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY5_V6", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY5_V7", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY5_V8", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY5_V9", "REC_TRIMP_COMPARATIVE_LOWER_SEVERITY5_V10"]
+
+R-REC-TRIMP-COMPARATIVE-UPPER-SEVERITY1:
+  when:
+    trimp_{short}d_vs_{long}d: *UPPER_S1_GT
+    AND:
+      trimp_{short}d_vs_{long}d: *UPPER_S1_LE
+  category: recuperación
+  candidates: ["REC_TRIMP_COMPARATIVE_UPPER_SEVERITY1_V1", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY1_V2", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY1_V3", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY1_V4", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY1_V5", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY1_V6", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY1_V7", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY1_V8", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY1_V9", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY1_V10"]
+
+R-REC-TRIMP-COMPARATIVE-UPPER-SEVERITY2:
+  when:
+    trimp_{short}d_vs_{long}d: *UPPER_S2_GT
+    AND:
+      trimp_{short}d_vs_{long}d: *UPPER_S2_LE
+  category: recuperación
+  candidates: ["REC_TRIMP_COMPARATIVE_UPPER_SEVERITY2_V1", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY2_V2", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY2_V3", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY2_V4", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY2_V5", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY2_V6", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY2_V7", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY2_V8", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY2_V9", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY2_V10"]
+
+R-REC-TRIMP-COMPARATIVE-UPPER-SEVERITY3:
+  when:
+    trimp_{short}d_vs_{long}d: *UPPER_S3_GT
+    AND:
+      trimp_{short}d_vs_{long}d: *UPPER_S3_LE
+  category: recuperación
+  candidates: ["REC_TRIMP_COMPARATIVE_UPPER_SEVERITY3_V1", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY3_V2", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY3_V3", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY3_V4", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY3_V5", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY3_V6", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY3_V7", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY3_V8", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY3_V9", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY3_V10"]
+
+R-REC-TRIMP-COMPARATIVE-UPPER-SEVERITY4:
+  when:
+    trimp_{short}d_vs_{long}d: *UPPER_S4_GT
+    AND:
+      trimp_{short}d_vs_{long}d: *UPPER_S4_LE
+  category: recuperación
+  candidates: ["REC_TRIMP_COMPARATIVE_UPPER_SEVERITY4_V1", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY4_V2", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY4_V3", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY4_V4", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY4_V5", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY4_V6", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY4_V7", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY4_V8", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY4_V9", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY4_V10"]
+
+R-REC-TRIMP-COMPARATIVE-UPPER-SEVERITY5:
+  when:
+    trimp_{short}d_vs_{long}d: *UPPER_S5_GT
+  category: recuperación
+  candidates: ["REC_TRIMP_COMPARATIVE_UPPER_SEVERITY5_V1", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY5_V2", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY5_V3", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY5_V4", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY5_V5", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY5_V6", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY5_V7", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY5_V8", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY5_V9", "REC_TRIMP_COMPARATIVE_UPPER_SEVERITY5_V10"]

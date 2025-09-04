@@ -120,3 +120,4 @@ Write-Host "  .\run.bat" -ForegroundColor White
 Write-Host ""
 
 Write-Host "¡Maven instalado exitosamente con Chocolatey!" -ForegroundColor Green
+

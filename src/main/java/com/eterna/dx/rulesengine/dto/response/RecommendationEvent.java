@@ -25,6 +25,8 @@ public class RecommendationEvent {
 
     private String ruleId;
 
+    private String ruleName;
+
     private String category;
 
     private Integer severity;

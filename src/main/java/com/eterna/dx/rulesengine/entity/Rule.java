@@ -1,5 +1,7 @@
 package com.eterna.dx.rulesengine.entity;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,8 +15,10 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "rules")
@@ -128,7 +132,8 @@ public class Rule {
         }
     }
 
-    // Método helper para añadir mensajes
+    // Métodos helper para manejar mensajes
+
     public void addMessage(RuleMessage message) {
         messages.add(message);
         message.setRule(this);
@@ -137,5 +142,43 @@ public class Rule {
     public void removeMessage(RuleMessage message) {
         messages.remove(message);
         message.setRule(null);
+    }
+
+    /**
+     * Devuelve los mensajes en el formato esperado por el frontend
+     */
+    public Map<String, Object> getMessagesForFrontend() {
+        if (messages == null || messages.isEmpty()) {
+            return Map.of(
+                "locale", locale != null ? locale : "es-ES",
+                "candidates", List.of()
+            );
+        }
+
+        // Convertir RuleMessage a formato frontend
+        List<Map<String, Object>> candidates = messages.stream()
+            .map(msg -> {
+                Map<String, Object> candidate = new HashMap<>();
+                candidate.put("id", msg.getId());
+                candidate.put("text", msg.getText() != null ? msg.getText() : "");
+                candidate.put("weight", msg.getWeight() != null ? msg.getWeight() : 1);
+                candidate.put("active", msg.getActive() != null ? msg.getActive() : true);
+                return candidate;
+            })
+            .collect(Collectors.toList());
+
+        // Usar el locale del primer mensaje o el locale de la regla
+        String messageLocale = locale != null ? locale : "es-ES";
+        if (!messages.isEmpty()) {
+            String firstMessageLocale = messages.get(0).getLocale();
+            if (firstMessageLocale != null) {
+                messageLocale = firstMessageLocale;
+            }
+        }
+
+        return Map.of(
+            "locale", messageLocale,
+            "candidates", candidates
+        );
     }
 }
