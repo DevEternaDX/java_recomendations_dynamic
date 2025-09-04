@@ -16,10 +16,8 @@ Sistema de motor de reglas desarrollado en Java con Spring Boot y interfaz web e
 git clone https://github.com/DevEternaDX/java_recomendations_dynamic.git
 cd java_recomendations_dynamic
 
-# Instalar dependencias del frontend
-cd admin-ui
-npm install
-cd ..
+# Setup automático (verifica Java/Maven/Node, instala dependencias y compila)
+./setup.bat
 
 # Iniciar todo (API + UI)
 .\iniciar-robusto.bat
@@ -84,7 +82,13 @@ REGLA-001:
 ```
 
 ### CSV
-Formato: `id,tenant_id,category,priority,severity,cooldown_days,max_per_day,enabled,tags,logic,locale,messages`
+Formato único soportado (rules_ui_format.csv):
+- Cabeceras: `id,tenant_id,category,priority,severity,cooldown_days,max_per_day,enabled,tags,logic,locale,messages`
+- `logic` y `messages` son strings JSON.
+- Importación desde UI usa autodetección: si pegas YAML/JSON va a `/rules/import`, si subes `.csv` va a `/rules/import_csv_reformed`.
+
+Ejemplo `logic` en CSV: `{"all":[{"var":"steps","agg":"current","op":"<","value":2500}]}`
+Ejemplo `messages` en CSV: `[{"text":"Texto 1","weight":1,"active":true}]`
 
 ## Desarrollo
 
@@ -121,6 +125,16 @@ npm start
 ├── *.bat                       # Scripts de Windows
 └── README.md                   # Esta documentación
 ```
+
+## Documentación detallada
+
+- Guía principal: `docs/README.md`
+- Arquitectura: `docs/arquitectura.md`
+- Backend (controladores/servicios/entidades): `docs/backend.md`
+- Frontend (estructura y cliente API): `docs/frontend.md`
+- Referencia de API: `docs/api.md`
+- Formatos (JSON/YAML/CSV): `docs/formatos.md`
+- Operación y troubleshooting: `docs/operacion.md`
 
 ## Troubleshooting
 
